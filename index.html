@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سفر چهل‌هفته‌ای — اطلس سه‌بعدی رشد جنین</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#F4ECDB;--card:#FCF8EE;--ink:#3E2E22;--mut:#8B7A63;--line:#E1D2B7;
+ --acc:#B5502F;--accD:#8F3C20;--t1:#B5502F;--t2:#697A4E;--t3:#8A5730}
+::selection{background:var(--acc);color:#FFF6E8}
+html{scroll-behavior:smooth}
+body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1400px;margin:0 auto;padding:0 24px}
+button{font:inherit}
+
+/* هدر */
+header.site{display:flex;align-items:center;gap:16px;padding:20px 0 14px;border-bottom:2px solid var(--ink);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.brand .lg{width:46px;height:46px;flex:none}
+.brand h1{font-size:23px;font-weight:900;line-height:1.2}
+.brand p{font-size:12px;color:var(--mut);font-weight:600;margin-top:3px}
+.hdr-a{margin-right:auto;display:flex;gap:10px}
+.btn{display:flex;gap:8px;align-items:center;font-size:13.5px;font-weight:800;padding:10px 18px;border-radius:99px;cursor:pointer;transition:all .2s;border:1.5px solid var(--ink);background:transparent}
+.btn svg{width:15px;height:15px}
+.btn.ghost{color:var(--ink)}
+.btn.ghost:hover{background:#EDE2CB}
+.btn.solid{background:var(--acc);border-color:var(--acc);color:#FFF6E8}
+.btn.solid:hover{background:var(--accD)}
+
+/* نوار پیشرفت */
+.progress{display:flex;align-items:center;gap:16px;padding:14px 0}
+.plabel{font-size:12.5px;font-weight:700;color:var(--mut);white-space:nowrap}
+.plabel b{color:var(--acc);font-size:14px}
+.pbar{flex:1;height:4px;background:var(--line);border-radius:99px;position:relative}
+.pseg{position:absolute;top:-3px;width:2px;height:10px;background:var(--ink);opacity:.3;border-radius:2px}
+#pseg1{right:30.8%}#pseg2{right:66.7%}
+.pfill{position:absolute;top:0;bottom:0;right:0;width:0;background:var(--acc);border-radius:99px;transition:width .6s ease}
+
+/* چیدمان */
+main{display:grid;grid-template-columns:265px minmax(0,1fr);gap:30px;padding:20px 0 60px;align-items:start}
+#rail{position:sticky;top:12px;max-height:calc(100vh - 28px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:var(--line) transparent;padding-left:6px}
+#rail::-webkit-scrollbar{width:4px}
+#rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.grp{position:relative;margin-bottom:8px}
+.g1{--tc:var(--t1)}.g2{--tc:var(--t2)}.g3{--tc:var(--t3)}
+.grp::before{content:'';position:absolute;top:16px;bottom:8px;right:6px;width:2px;background:var(--line);border-radius:2px}
+.grp h3{font-size:12.5px;font-weight:800;color:var(--tc);margin:0 0 8px;padding-right:25px}
+.grp h3 small{font-weight:600;color:var(--mut);font-size:10.5px;margin-right:8px}
+.wk{position:relative;display:flex;align-items:baseline;gap:9px;width:100%;padding:5px 8px 5px 10px;background:none;border:0;cursor:pointer;border-radius:9px;text-align:right;color:var(--mut);transition:background .15s,color .15s}
+.wk::before{content:'';position:absolute;right:1px;top:50%;margin-top:-6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--line);transition:all .2s}
+.wk .n{font-weight:800;font-size:14px;min-width:26px;display:inline-block;text-align:center;color:inherit}
+.wk .sz{font-size:11px;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0}
+.wk:hover{background:#EFE5CF;color:var(--ink)}
+.wk.on{background:#F1E6CC;color:var(--ink)}
+.wk.on::before{background:var(--tc);border-color:var(--tc);width:13px;height:13px;margin-top:-7px;box-shadow:0 0 0 3px rgba(120,90,50,.18)}
+.wk.on .n{color:var(--tc);font-size:15px}
+
+/* ستون نمایش */
+.cols{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:28px;align-items:start}
+.vizcol{position:sticky;top:12px}
+.stage{position:relative;background:#F8F1E0;border:1px solid var(--line);border-radius:26px;overflow:hidden;user-select:none;-webkit-user-select:none;
+ height:560px;height:clamp(430px,calc(100vh - 170px),720px)}
+.stage.t1{--tc:var(--t1);border-color:#DBAF98}
+.stage.t2{--tc:var(--t2);border-color:#BBC49B}
+.stage.t3{--tc:var(--t3);border-color:#CDA986}
+#stageInner{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden}
+#stageInner canvas{position:absolute;top:0;left:0;display:block}
+/* برچسب‌های سه‌بعدی */
+.l3dwrap{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:3;overflow:hidden}
+.l3d{position:absolute;top:0;left:0;font-size:12px;font-weight:700;color:#3E2E22;background:rgba(252,248,238,.92);border:1px solid #E1D2B7;padding:2px 11px;border-radius:99px;white-space:nowrap;box-shadow:0 2px 8px rgba(90,60,30,.08);will-change:transform}
+.stage.nolbls .l3dwrap{display:none}
+/* HUD */
+.hud{position:absolute;z-index:5}
+.hud-tl{top:18px;right:20px}
+.hud-num{display:flex;align-items:baseline;gap:10px}
+.hud-num span{font-size:14px;font-weight:700;color:var(--mut)}
+.hud-num b{font-size:58px;font-weight:900;line-height:1;color:var(--tc,var(--t1))}
+.hud-fruit{margin-top:6px;font-size:12.5px;font-weight:700;color:var(--ink);background:rgba(252,248,238,.9);border:1px solid var(--line);padding:4px 14px;border-radius:99px;display:inline-block}
+.hud-tr{top:18px;left:20px;display:flex;gap:8px;align-items:center}
+.chip{font-size:11px;font-weight:800;color:var(--tc,var(--t1));border:1.5px solid var(--tc,var(--t1));padding:5px 13px;border-radius:99px;background:rgba(252,248,238,.92);white-space:nowrap}
+.btnic{display:flex;align-items:center;justify-content:center;width:32px;height:32px;padding:0;border-radius:99px;border:1.5px solid var(--line);background:rgba(252,248,238,.92);color:var(--ink);cursor:pointer;transition:all .2s}
+.btnic svg{width:15px;height:15px}
+.btnic:hover,.btnic.act{border-color:var(--acc);color:var(--acc)}
+.hud-bl{bottom:18px;right:20px;display:flex;gap:8px}
+.rbtn{width:42px;height:42px;border-radius:99px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;box-shadow:0 3px 10px rgba(90,60,30,.12)}
+.rbtn svg{width:18px;height:18px}
+.rbtn:hover:not(:disabled){background:var(--acc);border-color:var(--acc);color:#FFF6E8}
+.rbtn:disabled{opacity:.3;cursor:default}
+.hud-br{bottom:22px;left:20px}
+.hint{display:flex;gap:7px;align-items:center;font-size:11.5px;font-weight:700;color:var(--mut);background:rgba(252,248,238,.9);border:1px solid var(--line);padding:6px 14px;border-radius:99px;max-width:240px}
+.hint svg{width:14px;height:14px;flex:none}
+
+/* مشخصات */
+.specsrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.sch2{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 15px;flex:1;min-width:135px}
+.sch2 svg{width:17px;height:17px;color:var(--acc);flex:none}
+.sch2 span{display:block;font-size:10.5px;color:var(--mut);font-weight:700}
+.sch2 b{font-size:13.5px;font-weight:800;white-space:nowrap}
+
+/* تب‌ها و محتوا */
+.tabs{display:flex;gap:2px;border-bottom:1.5px solid var(--line);margin-bottom:20px;flex-wrap:wrap}
+.tb{display:flex;gap:8px;align-items:center;padding:10px 14px 12px;background:none;border:0;font-size:13.5px;font-weight:700;color:var(--mut);cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1.5px;transition:color .15s,border-color .15s}
+.tb svg{width:16px;height:16px}
+.tb:hover{color:var(--ink)}
+.tb.on{color:var(--acc);border-bottom-color:var(--acc)}
+#pane{min-height:300px}
+.pn{animation:pin .4s ease}
+@keyframes pin{from{opacity:0;transform:translateY(8px)}}
+.pn h4{font-size:12px;font-weight:800;color:var(--mut);letter-spacing:.04em;margin:0 0 14px;display:flex;align-items:center}
+.pn h4::before{content:'';display:inline-block;width:20px;height:3px;background:var(--acc);border-radius:2px;margin-left:10px}
+.pn h4:not(:first-child){margin-top:26px}
+.pn p{font-size:15.5px;line-height:2.15;color:#4A3A2C;max-width:64ch}
+.quiet{font-size:15px;line-height:2.1;color:#6E5B44}
+.mlist{list-style:none;display:grid;gap:9px}
+.mlist li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.95;color:#4A3A2C}
+.mlist svg{width:17px;height:17px;color:var(--t2);flex:none;margin-top:7px}
+.nuts{display:grid;gap:12px}
+.ncard{border-right:3px solid var(--acc);background:#F5EAD6;padding:14px 17px;border-radius:14px 4px 4px 14px}
+.ncard .nh{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;margin-bottom:7px}
+.ncard svg{width:15px;height:15px;color:var(--acc);align-self:center}
+.ncard b{font-size:17px;font-weight:900;color:var(--acc)}
+.ncard span{font-size:12.5px;font-weight:800;color:var(--ink);background:rgba(255,252,244,.75);border:1px solid #E4D3B4;padding:1px 10px;border-radius:99px}
+.ncard p{font-size:14px;line-height:2;color:#6E5B44}
+.diet{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 18px;margin-top:16px}
+.diet svg{width:19px;height:19px;color:var(--t2);flex:none;margin-top:6px}
+.rem{display:flex;gap:10px;align-items:center;margin-top:12px;font-size:12.5px;font-weight:700;color:#6E5B44}
+.rem svg{width:15px;height:15px;color:#3D7FA3;flex:none}
+.tlist{list-style:none;display:grid;gap:10px}
+.tlist li{display:flex;gap:11px;align-items:flex-start;font-size:15px;line-height:1.95;color:#4A3A2C}
+.tlist svg{width:17px;height:17px;color:var(--t1);flex:none;margin-top:6px}
+.visit{display:flex;gap:12px;background:#F0E9D6;border-radius:16px;padding:15px 18px}
+.visit svg{width:19px;height:19px;color:var(--t3);flex:none;margin-top:6px}
+.visit p{font-size:14.5px;line-height:2;color:#5A4832}
+.symps{display:flex;flex-wrap:wrap;gap:9px}
+.schip{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700;color:#5A4832;background:var(--card);border:1px solid var(--line);padding:7px 15px;border-radius:99px}
+.schip svg{width:14px;height:14px;color:var(--t3)}
+.warn{display:flex;gap:12px;background:#F6E3D2;border:1px solid #E4B795;border-radius:16px;padding:15px 18px}
+.warn svg{width:19px;height:19px;color:#B5502F;flex:none;margin-top:7px}
+.warn p{font-size:15px;line-height:2.1;color:#74401F}
+
+/* حباب‌های نسخهٔ دوبعدی */
+.bub{animation:fbb 8s ease-in-out infinite alternate}
+@keyframes fbb{from{transform:translateY(0)}to{transform:translateY(-22px)}}
+
+#toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:#F8F1E2;padding:11px 24px;border-radius:99px;font-size:13.5px;font-weight:700;opacity:0;pointer-events:none;transition:all .35s;z-index:99;white-space:nowrap}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--mut);font-size:12.5px;line-height:2.1;display:flex;gap:12px}
+footer svg{width:16px;height:16px;flex:none;margin-top:5px;color:var(--acc)}
+
+@media(max-width:1060px){.cols{grid-template-columns:1fr}.vizcol{position:static}.stage{height:58vh;max-height:520px}}
+@media(max-width:960px){
+ main{grid-template-columns:1fr;gap:0;padding-top:14px}
+ #rail{position:sticky;top:0;z-index:20;background:var(--bg);display:flex;overflow-x:auto;overflow-y:hidden;gap:3px;padding:10px 4px;max-height:none;border-bottom:1px solid var(--line)}
+ .grp{margin:0;display:flex;gap:3px}
+ .grp::before,.grp h3{display:none}
+ .wk{flex:none;padding:7px 14px;border:1.5px solid var(--line);border-radius:99px;background:var(--card);text-align:center}
+ .wk::before{display:none}
+ .wk .sz{display:none}
+ .wk.on{border-color:var(--tc);background:var(--tc);color:#FFF8EC}
+ .wk.on .n{color:#FFF8EC}
+ .hud-num b{font-size:40px}
+}
+@media(max-width:620px){.brand h1{font-size:19px}.btn{padding:9px 13px}.hud-fruit{display:none}.hint{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header class="site">
+  <div class="brand">
+   <svg class="lg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+    <circle cx="24" cy="24" r="21" stroke="#3E2E22" stroke-width="2.6"/>
+    <path d="M16 33 C 27 36, 34 28, 31 18" stroke="#B5502F" stroke-width="3.4" stroke-linecap="round"/>
+    <circle cx="31" cy="16.5" r="5.6" fill="#B5502F"/>
+   </svg>
+   <div><h1>سفر چهل‌هفته‌ای</h1><p>اطلس سه‌بعدی رشد جنین — از لقاح تا نخستین گریه</p></div>
+  </div>
+  <div class="hdr-a">
+   <button class="btn ghost" id="shareBtn" type="button"><i data-lucide="link"></i><span>کپی پیوند</span></button>
+   <button class="btn solid" id="playBtn" type="button"><span class="ic"><i data-lucide="play"></i></span><span id="playLbl">پخش سفر</span></button>
+  </div>
+ </header>
+
+ <div class="progress">
+  <div class="plabel">هفتهٔ <b id="pweek">۱</b> از ۴۰</div>
+  <div class="pbar">
+   <span class="pseg" id="pseg1"></span><span class="pseg" id="pseg2"></span>
+   <div class="pfill" id="pfill"></div>
+  </div>
+ </div>
+
+ <main>
+  <aside id="rail" aria-label="تایم‌لاین هفته‌ها"></aside>
+  <section>
+   <div class="cols">
+    <div class="vizcol">
+     <div class="stage t1" id="stage">
+      <div id="stageInner"></div>
+      <div class="hud hud-tl">
+       <div class="hud-num"><span>هفتهٔ</span><b id="hudNum">۱</b></div>
+       <div class="hud-fruit" id="hudFruit">—</div>
+      </div>
+      <div class="hud hud-tr">
+       <span class="chip" id="triTag">سه‌ماههٔ اول</span>
+       <button class="btnic act" id="lblBtn" title="برچسب‌های آناتومیک" type="button"><i data-lucide="tags"></i></button>
+       <button class="btnic" id="rvBtn" title="بازنشانی نما" type="button"><i data-lucide="rotate-ccw"></i></button>
+      </div>
+      <div class="hud hud-bl">
+       <button id="prevB" class="rbtn" title="هفتهٔ قبل" type="button"><i data-lucide="chevron-right"></i></button>
+       <button id="nextB" class="rbtn" title="هفتهٔ بعد" type="button"><i data-lucide="chevron-left"></i></button>
+      </div>
+      <div class="hud hud-br">
+       <span class="hint"><i data-lucide="rotate-3d"></i><span id="hintTx">بکشید و بچرخانید · اسکرول = بزرگ‌نمایی</span></span>
+      </div>
+     </div>
+     <div class="specsrow" id="specs"></div>
+    </div>
+    <div class="info">
+     <nav class="tabs" id="tabs"></nav>
+     <div id="pane"></div>
+    </div>
+   </div>
+  </section>
+ </main>
+
+ <footer>
+  <i data-lucide="info"></i>
+  <div>این برنامه صرفاً آموزشی است و جایگزین مشاورهٔ پزشکی نیست. طول و وزن جنین بر مبنای صدک ۵۰ جداول مرجع رشد (هادلاک/فنتون) و سایر داده‌ها بر پایهٔ متون مرجع رشد جنین و دستورالعمل‌های عمومی مراقبت بارداری (ACOG/WHO) گردآوری شده و همگی تقریبی و متغیرند. دربارهٔ سلامت خود و جنین‌تان همواره با پزشک یا ماما مشورت کنید.</div>
+ </footer>
+</div>
+<div id="toast"></div>
+
+<!-- بارگذاری کتابخانه‌ها با اسکریپت کلاسیک (بدون ماژول) + CDN جایگزین -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+<script>if(!window.THREE){document.write('<script src="https://unpkg.com/three@0.147.0/build/three.min.js"><\/script>');}</script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js"></script>
+<script>if(!window.lucide){document.write('<script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"><\/script>');}</script>
+
+<script>
+(function(){
+'use strict';
+
+/* ================= ابزارها ================= */
+var FA=function(s){return String(s).replace(/[0-9]/g,function(n){return '۰۱۲۳۴۵۶۷۸۹'[+n]})};
+function smp(kf,w){
+ if(w<=kf[0][0])return kf[0][1];
+ for(var i=0;i<kf.length-1;i++){var a=kf[i],b=kf[i+1];
+  if(w>=a[0]&&w<=b[0])return a[1]+(b[1]-a[1])*(w-a[0])/(b[0]-a[0])}
+ return kf[kf.length-1][1];
+}
+var KF={
+ fill:[[4,.02],[5,.09],[8,.16],[12,.28],[16,.4],[20,.5],[24,.6],[28,.7],[32,.8],[36,.92],[38,.97],[40,1.02]],
+ head:[[4,1.9],[8,1.55],[12,1.35],[16,1.22],[20,1.14],[24,1.1],[28,1.07],[32,1.05],[36,1.03],[40,1]],
+ limb:[[4,.22],[8,.4],[12,.6],[16,.75],[20,.85],[24,.92],[28,.96],[32,.99],[36,1],[40,1]],
+ body:[[4,.5],[8,.65],[12,.75],[16,.83],[20,.88],[24,.92],[28,.95],[32,.98],[36,1],[40,1]],
+ curl:[[4,1],[10,.85],[16,.72],[24,.6],[32,.5],[36,.45],[40,.45]],
+ face:[[4,0],[6,.3],[10,.75],[14,1]],
+ eyes:[[25,0],[28,1]],
+ hair:[[20,0],[26,.45],[32,1]],
+ skin:[[4,0],[10,.45],[22,1]],
+ tilt:[[29,0],[33,80],[36,160],[40,168]],
+ engage:[[33,0],[37,.45],[40,.62]],
+ plaO:[[3,0],[5,.55],[8,1]],
+ sacR:[[4,.6],[9,2.1],[12,2.6]],
+ sacO:[[3,0],[4,.5],[5,1],[9,.7],[11,0]],
+ yolkO:[[4,0],[5,1],[7,.6],[9,0]],
+ endoO:[[1,.55],[4,1],[8,.15],[10,0]],
+ cordR:[[5,.07],[20,.17],[32,.25],[40,.3]],
+ heartO:[[4,0],[5,.3],[6,1]],
+ ovumO:[[1,0],[2,1],[3,0]],
+ morO:[[2,0],[3,1],[4,0]],
+ blaO:[[3,0],[4,1],[5,0]],
+ belly:[[1,1],[12,1.03],[20,1.06],[28,1.09],[36,1.12],[40,1.13]],
+ cy:[[1,465],[12,425],[20,335],[28,315],[36,320],[40,325]]
+};
+function sampleAll(w){var o={},k;for(k in KF)o[k]=smp(KF[k],w);return o}
+function cloneP(p){var o={},k;for(k in p)o[k]=p[k];return o}
+var RM=false;try{RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+
+/* ================= داده‌های علمی ۴۰ هفته =================
+   طول (ln) و وزن (wt / wtg) بر مبنای صدک ۵۰ جداول هادلاک/فنتون */
+var W=[
+{sz:"—",ut:"به بزرگی یک گلابی",ttl:"آغاز شمارش",ln:"—",wt:"—",wtg:null,bpm:null,
+ f:"سن بارداری از نخستین روزِ آخرین قاعدگی شمرده می‌شود؛ یعنی این هفته هنوز لقاح رخ نداده است. در تخمدان چند فولیکول هم‌زمان رشد می‌کنند که یکی از آنها تا پایان هفتهٔ بعد برتری می‌یابد. لایهٔ درونی رحم (اندومتریوم) زیر اثر استروژن ضخیم، پرخون و نرم می‌شود تا بستری آماده برای پیوند جنین آینده باشد.",
+ m:["شمارش چهل‌هفته‌ای بارداری از همین روز آغاز می‌شود","فولیکول‌های تخمدان در حال رشد و رقابت‌اند","اندومتریوم ضخیم و پرخون می‌شود"],
+ nu:[{n:"اسید فولیک",d:"۴۰۰ میکروگرم در روز",y:"مصرف فولات دست‌کم یک ماه پیش از لقاح، خطر ناقصی لولهٔ عصبی (اسپینا بیفیدا) را تا حدود ۷۰٪ کاهش می‌دهد؛ منابع: سبزیجات برگ‌سبز تیره، حبوبات، غلات غنی‌شده و جوانهٔ گندم."},
+     {n:"آب و مایعات",d:"۸ تا ۱۰ لیوان در روز",y:"آب‌رسانی کافی پایهٔ افزایش ۵۰ درصدی حجم خون در بارداری است و به سلامت تخمک و اندومتریوم کمک می‌کند."}],
+ dt:"الگوی غذایی سالمِ پایه را همین حالا تثبیت کنید: سه وعدهٔ کامل و دو تا سه میان‌وعده با تأکید بر سبزی، حبوبات، غلات کامل، لبنیات و پروتئین باکیفیت. کافئین را به کمتر از ۲۰۰ میلی‌گرم در روز (حدود یک فنجان قهوه) محدود کنید.",
+ t:["در صورت امکان ویزیت پیش از بارداری: گروه خون و Rh، TSH، تیتر سرخجه و هپاتیت، قند ناشتا، معاینهٔ عمومی و مرور داروها","به‌روزرسانی واکسیناسیون (کزات، سرخک، هپاتیت B) پیش از لقاح ایمن‌تر است"],
+ sy:["علائم شبیه سندرم پیش از قاعدگی: نفخ و حساسیت خفیف پستان","تغییرات خلقی ملایم"],
+ no:"اگر داروی مزمنی (تیروئید، صرع، فشار خون و…) مصرف می‌کنید، ایمنی آن در بارداری را همین هفته با پزشک مرور کنید؛ برخی داروها باید پیش از لقاح تنظیم شوند. الکل و دخانیات را به‌کلی کنار بگذارید."},
+{sz:"—",ut:"به بزرگی یک گلابی",ttl:"تخمک‌گذاری و پنجرهٔ باروری",ln:"—",wt:"—",wtg:null,bpm:null,
+ f:"حدود روز چهاردهم سیکل، فولیکول غالب می‌ترکد و تخمک بالغ رها می‌شود. اگر نزدیکی در پنجرهٔ باروری انجام شود، اسپرم‌ها در لولهٔ فالوپ به تخمک می‌رسند و یکی از آنها غشای آن را نفوذ می‌کند؛ در همان لحظهٔ لقاح، ۲۳ کروموزوم پدر و ۲۳ کروموزوم مادر کنار هم می‌نشینند و جنسیت جنین — بسته به کروموزوم X یا Y اسپرم — برای همیشه تعیین می‌شود.",
+ m:["تخمک‌گذاری در پایان همین هفته","لقاح احتمالی در بخش انتهایی لولهٔ فالوپ","تعیین جنسیت در همان لحظهٔ لقاح"],
+ nu:[{n:"اسید فولیک",d:"۴۰۰ میکروگرم در روز",y:"تداوم مصرف برای سلامت تقسیم‌های سلولی روزهای آینده؛ هرگز قطع نکنید."},
+     {n:"روی (زینک)",d:"۸ تا ۱۱ میلی‌گرم در روز",y:"برای بلوغ و کیفیت تخمک و تقسیم سلولی؛ منابع: گوشت قرمز کم‌چرب، تخم‌مرغ، حبوبات، تخمهٔ کدو و مغزها."},
+     {n:"پروتئین",d:"۶۵ تا ۷۵ گرم در روز",y:"آمینواسیدهای ضروری برای کیفیت سلولی روزهای لقاح: تخم‌مرغ، حبوبات پخته، مرغ و ماهی کم‌جیوه."}],
+ dt:"در این روزها بر خواب کافی، فعالیت ملایم و غذاهای تازه تأکید کنید. آب فراوان، محیط بدن را برای ادامهٔ مسیر سلولی آماده نگه می‌دارد.",
+ t:["کیت تخمک‌گذاری (آزمایش LH ادراری) برای تشخیص پنجرهٔ باروری","در صورت برنامه‌ریزی، نزدیکی هر یک تا دو روز در این بازه بیشترین شانس را دارد"],
+ sy:["ترشحات شفاف و کشسان شبیه سفیدهٔ تخم‌مرغ","افزایش ملایم دمای پایهٔ بدن","میل جنسی معمولاً بیشتر می‌شود"],
+ no:"مکمل‌های خودسرانهٔ «باروری» با دوز بالا جایگزین رژیم متنوع و فولیک‌اسید نیستند؛ هر مکملی را با پزشک هماهنگ کنید."},
+{sz:"تخمکِ لقاح‌یافته",ut:"به بزرگی یک گلابی",ttl:"لقاح و سفر زیگوت",ln:"۰٫۱ میلی‌متر",wt:"—",wtg:null,bpm:null,
+ f:"زیگوت — نخستین سلول جنین — طی ۲۴ ساعت پس از لقاح شروع به تقسیم می‌کند: ۲ سلول، ۴ سلول، ۸ سلول و سپس تودهٔ توت‌مانند «مورولا». در روز پنجم به «بلاستوسیست» تبدیل می‌شود؛ کره‌ای توخالی که دستهٔ سلولی درونی آن خودِ جنین آینده است. این کلاف سلولی سه تا چهار روز در لولهٔ فالوپ سفر می‌کند و در روز ششم تا دهم در دیوارهٔ پرخون رحم لانه می‌گزیند.",
+ m:["زیگوت ← مورولا ← بلاستوسیست","سلول‌های تروفوبلاست hCG ترشح می‌کنند: نخستین پیام شیمیایی بارداری به بدن مادر","پیوند (Implantation) در پایان همین هفته انجام می‌شود"],
+ nu:[{n:"اسید فولیک",d:"۴۰۰ تا ۶۰۰ میکروگرم در روز",y:"روزهای اوج تقسیم سلولی؛ کمبود فولات دقیقاً در این بازه خطرسازترین است."},
+     {n:"ویتامین B12",d:"۲٫۶ میکروگرم در روز",y:"برای تقسیم سلولی سالم و ساخت DNA؛ منابع: تخم‌مرغ، لبنیات و گوشت — در رژیم گیاهی مکمل ضروری است."},
+     {n:"آنتی‌اکسیدان‌ها",d:"ویتامین C و E از میوه و سبزی تازه",y:"محافظت از DNA سلول‌های در حال تقسیم سریع: فلفل دلمه‌ای، مرکبات، کیوی و بادام."}],
+ dt:"تغذیهٔ کامل و آرامش کافی؛ لازم نیست «برای دو نفر» بخورید — نیاز کالری در سه‌ماههٔ اول تقریباً تغییر نمی‌کند.",
+ t:["آزمایش خون β-hCG حساس، ۸ تا ۱۰ روز پس از لقاح قابل انجام است","تست خانگی معمولاً هنوز منفی است — کمی صبر کنید"],
+ sy:["لکه‌بینی خیلی خفیف «خونریزی پیوند» ممکن است روز ۶ تا ۱۲ رخ دهد","کرامپ خفیف و کشش زیرشکم"],
+ no:"لکه‌بینی خیلی کمِ صورتی یا قهوه‌ای در این هفته می‌تواند نشانهٔ طبیعی پیوند باشد؛ اما خونریزی قرمز و سنگین یا درد تیز یک‌طرفه را فوری گزارش کنید."},
+{sz:"بذر خشخاش",ut:"به بزرگی یک پرتقال کوچک",ttl:"پیوند و تست مثبت",ln:"۰٫۱ سانتی‌متر",wt:"زیر ۱ گرم",wtg:null,bpm:null,
+ f:"بلاستوسیست عمیق‌تر در اندومتریوم فرو می‌رود و پیوند کامل می‌شود؛ hCG وارد خون و ادرار شده و تست بارداری خانگی مثبت می‌شود. صفحهٔ عصبی — پیش‌زمینهٔ مغز و نخاع — پدیدار می‌شود و سه لایهٔ زایندی شکل می‌گیرد: اکتودرم (نظام عصبی و پوست)، مزودرم (قلب، عروق، عضله و استخوان) و اندودرم (لولهٔ گوارش و تنفسی). این سه لایه نقشهٔ کامل بدن انسان‌اند.",
+ m:["hCG در ادرار قابل اندازه‌گیری است — تست خانگی مثبت","سه لایهٔ زایندی بنیاد همهٔ اندام‌ها را می‌ریزند","جفت و کیسهٔ آمنیوتیک آغاز به شکل‌گیری می‌کنند"],
+ nu:[{n:"اسید فولیک",d:"۶۰۰ میکروگرم در روز",y:"شکل‌گیری لولهٔ عصبی در همین روزها رخ می‌دهد؛ فولات حیاتی‌ترین مکمل این هفته است."},
+     {n:"ویتامین B12",d:"۲٫۶ میکروگرم در روز",y:"همراه فولات برای سنتز DNA سلول‌های در حال تمایز."},
+     {n:"ویتامین D",d:"۶۰۰ واحد بین‌المللی در روز",y:"برای ایمنی سیستم دفاعی و جذب کلسیم: ۱۵ دقیقه آفتاب ملایم + تخم‌مرغ و لبنیات غنی‌شده."}],
+ dt:"تهوع احتمالاً هنوز شروع نشده؛ از این فرصت برای پرکردن ذخایر استفاده کنید: خورش عدس با سبزی، ماست پروبیوتیک و نان سبوس‌دار.",
+ t:["تست بارداری خانگی (ادرار) این هفته معمولاً مثبت می‌شود","β-hCG خون برای اطمینان؛ مقدار آن هر ۴۸ تا ۷۲ ساعت تقریباً دوبرابر می‌شود","قرار گذاشتن اولین ویزیت بارداری در هفته‌های ۶ تا ۹"],
+ sy:["قطع قاعدگی","خستگی شدید و خواب‌آلودگی","حساسیت و سنگینی پستان‌ها","ادرار پرتکرار"],
+ no:"داروهای بدون نسخه (مسکن، آنتی‌بیوتیک، داروهای سرماخوردگی) را بدون مشورت مصرف نکنید؛ استامینوفن در دوز معمول عموماً بی‌خطر تلقی می‌شود اما سایر مسکن‌ها نه."},
+{sz:"دانهٔ کنجد",ut:"به بزرگی یک پرتقال کوچک",ttl:"نخستین تپش",ln:"۲ تا ۴ میلی‌متر",wt:"زیر ۱ گرم",wtg:null,bpm:100,
+ f:"قلب لوله‌ایِ ساده شروع به تپیدن می‌کند — حدود روز ۲۱ تا ۲۲ پس از لقاح — و در سونوی ترانس‌واژینال مثل فلشی نورانی می‌درخشد. لولهٔ عصبی در طول پشت جنین در حال بسته‌شدن است و سه برآمدگی مغزی طرح‌ریزی می‌شوند. جنین درون کیسهٔ حاملگی و شناور در نخستین مایع آمنیوتیک، به شکل یک لوبیای خمیده با قلبی تپنده است.",
+ m:["ضربان قلب آغاز می‌شود و در سونو دیده می‌شود","لولهٔ عصبی — آیندهٔ مغز و نخاع — در حال بسته‌شدن است","کیسهٔ زرده به‌طور موقت وظیفهٔ تغذیه و خون‌سازی را بر عهده دارد"],
+ nu:[{n:"اسید فولیک",d:"۶۰۰ میکروگرم در روز",y:"بستن لولهٔ عصبی وابسته به فولات کافی است؛ در این پنجرهٔ حساس حتی یک روز قطع نکنید."},
+     {n:"ویتامین B6",d:"۱۰ تا ۲۵ میلی‌گرم (با تجویز)",y:"شواهد خوبی برای کاهش تهوع صبحگاهی دارد؛ دوز و فرم را با پزشک هماهنگ کنید."}],
+ dt:"اگر تهوع شروع شده، معده را خالی نگذارید: بیسکویت نمکی نیم ساعت پیش از برخاستن از تخت و وعده‌های کوچک هر ۲ تا ۳ ساعت، کلید کنترل تهوع است.",
+ t:["سونوی ترانس‌واژینال: تأیید کیسهٔ حاملگی و ضربان قلب","تکرار β-hCG در صورت سابقهٔ سقط یا درد، برای بررسی روند رشد"],
+ sy:["تهوع و بی‌اشتهایی شروع می‌شود","خستگی شدید (اثر پروژسترون)","حس بویایی تیز‌شده"],
+ no:"درد تیز و یک‌طرفهٔ شکم همراه با خونریزی یا سرگیجه می‌تواند نشانهٔ بارداری خارج رحمی باشد و بررسی فوری می‌خواهد — با اورژانس تماس بگیرید."},
+{sz:"دانهٔ عدس",ut:"به بزرگی یک گریپ‌فروت",ttl:"مغز شکل می‌گیرد",ln:"۰٫۵ سانتی‌متر",wt:"—",wtg:null,bpm:110,
+ f:"لولهٔ عصبی می‌بندد و مغز به سه بخش پیشین، میانی و پسین تقسیم می‌شود که با شگفتی رشد می‌کنند — پیشانی بیرون‌زدهٔ جنین حاصل همین رشد سریع است. جوانه‌های دست و پا مثل پارو ظاهر شده‌اند، چشم‌ها نقطه‌های تیرهٔ آشکاری روی صورت‌اند و گوش‌های داخلی آغاز به شکل‌گیری می‌کنند.",
+ m:["بسته‌شدن کامل لولهٔ عصبی","جوانه‌های دست و پا ظاهر می‌شوند","حفرهٔ قلب در جای نهایی سینه فرود می‌آید"],
+ nu:[{n:"اسید فولیک",d:"۶۰۰ میکروگرم در روز",y:"ادامهٔ پشتیبانی از رشد سیستم عصبی که اکنون سریع‌ترین بافت در حال رشد بدن جنین است."},
+     {n:"زنجبیل",d:"تا ۱ گرم در روز (چای یا قرص)",y:"شواهد علمی برای کاهش تهوع؛ مقادیر خیلی زیاد در بارداری توصیه نمی‌شود."},
+     {n:"کربوهیدرات پیچیده",d:"نان سبوس‌دار، برنج کامل، سیب‌زمینی",y:"انرژی پایدار و تحمل بهتر معده در روزهای تهوع."}],
+ dt:"در روزهای بدِ تهوع، «هرچه معده تحمل می‌کند» بهتر از هیچ است: ماست، موز، سیب‌زمینی پخته و سوپ سبک گزینه‌های دوست‌داشتنی معده‌اند. مایعات را بین وعده‌ها بنوشید نه همراه غذا.",
+ t:["اولین ویزیت کامل بارداری (۶ تا ۹ هفته): معاینه، وزن، فشار خون و تشکیل پرونده","آزمایش‌های پایه معمولاً همین زمان تجویز می‌شوند"],
+ sy:["تهوع در اوج اول","افزایش بزاق","سوءهاضمه و نفخ"],
+ no:"استفراغ‌های مکررِ همراه با کاهش وزن، نیازمند ارزیابی پزشکی است (Hyperemesis Gravidarum)؛ درمان مؤثر وجود دارد و تحملِ سختِ آن ضروری نیست."},
+{sz:"بلوبری",ut:"به بزرگی یک گریپ‌فروت",ttl:"جوانه‌های اندام",ln:"۱ سانتی‌متر",wt:"—",wtg:null,bpm:150,
+ f:"بازوها و پاها از تنه جدا می‌شوند و آرنج و زانو شکل می‌گیرد؛ دست‌ها پاروهایی با پردهٔ انگشتی‌اند. کلیه‌ها از لگن به سمت جایگاه نهایی در شکم بالا می‌روند و مغز با سرعت عجیبی نورون می‌سازد — در اوج، هر دقیقه صدها سلول عصبی جدید. جنین در سونو جهش‌های خودنخواسته نشان می‌دهد، اما مادر هنوز چیزی حس نمی‌کند.",
+ m:["آرنج و زانو شکل می‌گیرد","نورون‌های مغز با سرعت شگفت‌انگیز ساخته می‌شوند","حرکات اولیهٔ جنین در سونو دیده می‌شود"],
+ nu:[{n:"پروتئین",d:"۷۰ تا ۸۰ گرم در روز",y:"ساخت بافت عصبی و عضلانی؛ هر وعده سهمی از پروتئین داشته باشد."},
+     {n:"ویتامین C",d:"۸۵ میلی‌گرم در روز",y:"لازم برای ساخت کلاژن غضروف‌ها و دیوارهٔ عروق در حال شکل‌گیری: مرکبات، فلفل دلمه‌ای، کیوی."},
+     {n:"اسید فولیک",d:"۶۰۰ میکروگرم در روز",y:"تداوم تا پایان سه‌ماههٔ اول."}],
+ dt:"اگر بین تهوع‌ها فرصت هست، روی غذاهای آهن‌دار پیش‌بینی کنید: عدسی با لیمو، خوراک اسفناج و گوشت قرمز کم‌چرب — با فاصله از چای و قهوه.",
+ t:["انجام آزمایش‌های پایه در صورت تجویز (در هفتهٔ ۸ فهرست کامل می‌شود)","سونوی تاریخ‌گذاری در صورت ابهام در تاریخ آخرین قاعدگی"],
+ sy:["تهوع و استفراغ در اوج","حساسیت بویایی شدید","تیره‌شدن هالهٔ نوک سینه"],
+ no:"در بارداری‌های پس از سقط یا روش‌های کمک‌باروری، شنیدن ضربان قلب در سونوی این هفته معمولاً نخستین نقطهٔ آرامش واقعی است."},
+{sz:"لوبیا",ut:"به بزرگی یک گریپ‌فروت",ttl:"دست‌ها و ردپاها",ln:"۱٫۶ سانتی‌متر",wt:"۱ گرم",wtg:1,bpm:160,
+ f:"پردهٔ میان انگشتان کم‌رنگ می‌شود و خطوط آیندهٔ انگشتان پدیدار می‌شود؛ دم کوچک جنین کاملاً محو می‌شود. قلب چهارحفره‌ای با دریچه‌های اولیه تقریباً کامل شده، شریان‌های اصلی از آن خارج می‌شوند و مژه و پلک‌های اولیه شکل می‌گیرند.",
+ m:["انگشتان و پنجه‌ها از هم جدا می‌شوند","قلب چهارحفره‌ای تقریباً کامل است","دم رویانی محو می‌شود"],
+ nu:[{n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"حجم پلاسما از این هفته سریع بالا می‌رود؛ آهن را همراه ویتامین C (لیمو روی عدسی!) و با فاصله از چای و قهوه مصرف کنید."},
+     {n:"چربی مفید",d:"گردو، بادام، روغن زیتون و کانولا",y:"بلوک ساخت غشای سلولی و سیستم عصبی در حال شکل‌گیری."}],
+ dt:"آزمایش‌های خون در ناشتایی بهترند؛ صبحانهٔ پس از خون‌گیری را از قبل آماده کنید — نان و پنیر و گردو و یک مرکبات.",
+ t:["آزمایش‌های پایهٔ بارداری: شمارش خون کامل (CBC)، گروه خون و Rh، پایش آنتی‌بادی، TSH، تیتر سرخجه، هپاتیت B، HIV، سفیلیس، کلی ادرار و کشت ادرار","در مناطق اندمی: غربالگری تالاسمی (الکتروفورز هموگلوبین در صورت CBC غیرطبیعی)","سونوی تاریخ‌گذاری برای تعیین دقیق سن بارداری"],
+ sy:["کشش زیرشکم با رشد سریع رحم","سردردهای تنشی","تغییر در ترشحات (طبیعی و شفاف)"],
+ no:"لکه‌بینی هرچند خفیف را همیشه گزارش کنید؛ لکه‌بینی پس از رابطه یا معاینهٔ واژینال در این هفته‌ها شایع و معمولاً بی‌خطر است."},
+{sz:"زیتون",ut:"به بزرگی یک نارگیل",ttl:"هفتهٔ چهره",ln:"۲٫۳ سانتی‌متر",wt:"۲ گرم",wtg:2,bpm:170,
+ f:"چهره انسانی می‌شود: گوش‌های بیرونی، لب‌ها و نوک بینی جای خود را می‌گیرند و چشم‌ها با پلک‌های جوش‌خورده بسته می‌شوند — تا حدود هفته‌های ۲۶ تا ۲۸ همین‌طور می‌مانند تا شبکیه در تاریکی کامل رشد کند. کبد شروع به ساخت سلول‌های خونی می‌کند و بنیان غضروفی استخوان‌ها پدیدار می‌شود.",
+ m:["پلک‌ها بسته و تا حدود هفته‌های ۲۶ تا ۲۸ جوش‌خورده می‌مانند","کبد وارد خون‌سازی می‌شود","غضروف‌های اسکلتی شکل می‌گیرند"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"آغاز استخوان‌سازی: ۲ تا ۳ واحد لبنیات + کنجد و سبزی برگ‌سبز؛ مکمل را شب‌ها بگیرید تا جذب بهتری داشته باشد."},
+     {n:"منیزیم",d:"۳۵۰ تا ۳۶۰ میلی‌گرم در روز",y:"برای تخفیف کرامپ‌های عضلانی و آرامش اعصاب: بادام، اسفناج، حبوبات و شکلات تلخ (مقدار کم)."}],
+ dt:"تهوع معمولاً از این هفته رو به بهبود می‌رود؛ اشتهای بازگشته را با غذاهای مغذی پاسخ دهید نه پرکالریِ خالی.",
+ t:["مرور نتایج آزمایش‌های پایه در ویزیت","در صورت ریسک بالا: مشاورهٔ غربالگری کروموزومی (NIPT از هفتهٔ ۱۰ یا CVS از هفتهٔ ۱۱)"],
+ sy:["بهبود تدریجی تهوع","سرگیجه هنگام بلند شدن سریع","وریدهای آبی روی سینه‌ها"],
+ no:"سرگیجه‌های ایستادی طبیعی‌اند: آرام بلند شوید، آب کافی بنوشید و در ایستادن طولانی، وزن را بین دو پا جابه‌جا کنید."},
+{sz:"آلو",ut:"به بزرگی یک نارگیل",ttl:"رسماً یک «جنین»",ln:"۳٫۱ سانتی‌متر",wt:"۴ گرم",wtg:4,bpm:170,
+ f:"پایان دورهٔ رویانی؛ از این هفته موجود شما رسماً «جنین» (Fetus) نام دارد. شکل‌گیری اندام‌های اصلی کامل شده و برنامهٔ اصلی از این پس، بزرگ‌شدن و بالغ‌شدن است. روده‌ای که تا چند روز پیش از راه‌فرعی بند ناف استفاده می‌کرد به داخل شکم برمی‌گردد، ناخن‌های ریزی روی انگشتان می‌رویند و پیشانی صاف‌تر می‌شود.",
+ m:["پایان دورهٔ رویانی — آغاز دورهٔ جنینی","روده به داخل شکم برمی‌گردد","ناخن‌ها و جوانه‌های دندان شکل می‌گیرند"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"ادامهٔ استخوان‌سازی فعال."},
+     {n:"ید",d:"۲۲۰ میکروگرم در روز (WHO)",y:"برای ساخت مغز جنین حیاتی است: نمک یددار، ماهی و لبنیات؛ در صورت کم‌بود، مکمل یددار با نظر پزشک."},
+     {n:"ویتامین D",d:"۶۰۰ واحد بین‌المللی در روز",y:"بدون آن، کلسیم جذب نمی‌شود؛ در بسیاری از مادران ایرانی کمبود آن شایع است."}],
+ dt:"صبحانه را جدی بگیرید؛ صبحانهٔ کامل با کالری ثابت، کنترل قند خون و وزن بارداری را آسان‌تر می‌کند.",
+ t:["NIPT (غربالگری غیرتهاجمی کروموزومی) از این هفته قابل انجام است","در برنامهٔ غربالگری ترکیبی: رزرو سونوی NT برای هفتهٔ ۱۱ تا ۱۳ و ۶ روز"],
+ sy:["احساس بهبود عمومی","پرش‌های عضلانی خفیف در برخی مادران","رویش موی نازک روی شکم"],
+ no:"اگر سیگاری هستید، این هفته نقطهٔ طلایی ترک است — با حمایت پزشک و در صورت لزوم جایگزین‌های تجویزی، ترکِ تحت نظارت از ادامهٔ مصرف بسیار ایمن‌تر است."},
+{sz:"انجیر",ut:"به بزرگی یک پاپایای کوچک",ttl:"رقص و غلت‌زدن",ln:"۴٫۱ سانتی‌متر",wt:"۷ گرم",wtg:7,bpm:160,
+ f:"جنین مثل ماهی‌چه در مایع آمنیوتیک می‌غلتد، جهش می‌زند و «شنا» می‌کند — حرکاتش در سونو آشکار است اما به بدن کوچک مادر هنوز نمی‌رسد. جوانه‌های دندان شیر زیر لثه شکل می‌گیرند، دیافراگم جدا می‌شود و ممکن است جنین نخستین «هق‌ها» و تکان‌های شبه‌سرفه را تجربه کند.",
+ m:["حرکات فعال شناگونه در مایع آمنیوتیک","جوانه‌های ۲۰ دندان شیری زیر لثه","سرعت رشد سر از تنه بیشتر می‌شود"],
+ nu:[{n:"ویتامین A",d:"۷۷۰ میکروگرم — فقط از منابع بتاکاروتن",y:"برای دندان‌سازی و تمایز بافت: هویج، کدو حلوایی، زردک و سبزی برگ‌سبز. مکمل رتینول با دوز بالا در سه‌ماههٔ اول ممنوع است."},
+     {n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"تداوم برای جوانه‌های دندان و استخوان."},
+     {n:"اسید فولیک",d:"تا پایان سه‌ماههٔ اول",y:"ادامهٔ مصرف طبق برنامه."}],
+ dt:"وعده‌های منظم و آب کافی؛ دل‌پیچه‌های گازگونهٔ رحم معمولاً نشانهٔ رشد سریع رحم است — استراحت کوتاه کافی است.",
+ t:["غربالگری ترکیبی سه‌ماههٔ اول (۱۱ تا ۱۳+۶): سونوی NT + خون مادر (PAPP-A و β-hCG)","در صورت نتیجهٔ پرخطر: CVS (نمونه‌برداری پرزهای جفت) در هفته‌های ۱۱ تا ۱۴ یا NIPT"],
+ sy:["کشش‌های رباطی زیرشکم","اشتهای بازگشته","سردردهای خفیف هورمونی"],
+ no:"قبل از هر تصویربرداری دندان یا رادیوگرافی، بارداری‌تان را حتماً اعلام کنید؛ با پیشگیری (سربند تیروئید و شکم) بسیاری از رادیوگرافی‌های ضروری در بارداری قابل انجام‌اند."},
+{sz:"لیمو",ut:"به بزرگی یک پرتقال بزرگ",ttl:"اثر انگشتِ یکتا",ln:"۵٫۴ سانتی‌متر",wt:"۱۴ گرم",wtg:14,bpm:160,
+ f:"روی ده انگشت، الگوی اثر انگشت حک می‌شود — شناسنامه‌ای که تا پایان عمر هیچ انسان دیگری مثلش را ندارد. جنین مکیدن و فشردن را تمرین می‌کند، ادرارش چرخهٔ مایع آمنیوتیک را بازسازی می‌کند و رفلکس‌های نخاعی شکل می‌گیرند. رحم به اندازهٔ یک گریپ‌فروت رسیده و بالای شرمگاه قابل لمس است.",
+ m:["اثر انگشت منحصربه‌فرد حک می‌شود","ادرار جنین چرخهٔ مایع آمنیوتیک را کامل می‌کند","پایان سه‌ماههٔ اول — خطر سقط خودبه‌خودی به حدود ۱٪ می‌رسد"],
+ nu:[{n:"ید",d:"۲۲۰ میکروگرم در روز",y:"تداوم؛ ید ساخت‌دهندهٔ هورمون‌های تیروئید جنین است که مغز او را می‌سازند."},
+     {n:"فیبر",d:"۲۵ تا ۳۰ گرم در روز",y:"یبوست با کندی حرکات رحم جدی می‌شود: سبوس، میوه با پوست، حبوبات و ۱۰ لیوان آب."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"ادامهٔ ذخیره‌سازی برای رشد سریع حجم خون."}],
+ dt:"ورزش ملایم — پیاده‌روی روزانهٔ ۳۰ دقیقه، شنا یا یوگای بارداری — از این هفته یکی از بهترین سرمایه‌گذاری‌ها برای زایمان و خلق‌وخوست.",
+ t:["در صورت رزرو، سونوی NT باید تا پایان هفتهٔ ۱۳ و ۶ روز انجام شود","در صورت نتیجهٔ پرخطر غربالگری: مشاورهٔ ژنتیک برای CVS یا آمنیوسنتز"],
+ sy:["بازگشت انرژی","کاهش تهوع","خونریزی لثه هنگام مسواک (هورمونی و طبیعی)"],
+ no:"خونریزی لثه در بارداری شایع است؛ مسواک نرم + نخ دندان + مراجعه به دندانپزشک (با اعلام بارداری) آن را کنترل می‌کند."},
+{sz:"هلو",ut:"به بزرگی یک پاپایا",ttl:"استخوان‌ها سخت می‌شوند",ln:"۷٫۴ سانتی‌متر",wt:"۲۳ گرم",wtg:23,bpm:155,
+ f:"استخوان‌ها، دنده‌ها و جمجمه با رسوب کلسیم سخت می‌شوند و در سونو سفید دیده می‌شوند. جنین صداهای میرای بدن مادر — ضربان قلب، جریان خون و غرش معده — را «می‌شنود»، چون گوش میانی تقریباً تکامل یافته است. سر دیگر نیمی از کل بدن نیست؛ تنه پهن‌تر و قد کشیده‌تر می‌شود.",
+ m:["استخوان‌سازی (اُسیفیکاسیون) جدی می‌شود","شنیدن صداهای درونی بدن مادر","نسبت سر به بدن کم می‌شود"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"اوج استخوان‌سازی؛ کمبود کلسیم مستقیماً از ذخایر استخوان و دندان مادر برداشت می‌شود."},
+     {n:"ویتامین D",d:"۶۰۰ واحد + ۱۰ تا ۲۰ دقیقه آفتاب",y:"در صورت علائم کمبود، آزمایش ۲۵-OH ویتامین D و مکمل با دوز بالاتر با تجویز پزشک مفید است."},
+     {n:"پروتئین",d:"۷۵ تا ۹۰ گرم در روز",y:"ساخت بافت عضلانی و استخوانی."}],
+ dt:"لبنیات را خلاقانه بگنجانید: ماست با گردو و عسل، پنیر در سالاد کاهو با کنجد، شیر گرم شب‌ها — هر کدام سهم خوبی از کلسیم روزانه.",
+ t:[],
+ sy:["دور کمر بیشتر می‌شود — وقت عوض‌کردن لباس","بزرگ‌شدن سینه‌ها و نیاز به سینه‌بند بزرگ‌تر"],
+ no:"از این هفته خوابیدن به پشت را کم‌تر کنید؛ خوابیدن به پهلو (ترجیحاً چپ) جریان خون جفت را آزادتر نگه می‌دارد. بالش میان زانوها معجزه می‌کند."},
+{sz:"لیموترش بزرگ",ut:"به بزرگی یک پاپایای بزرگ",ttl:"لانگو و ابروها",ln:"۸٫۷ سانتی‌متر",wt:"۴۳ گرم",wtg:43,bpm:155,
+ f:"موی نرم و کرکی «لانگو» از پیشانی تا پشت شروع به روییدن می‌کند — پوششی گرمایی که تا هفته‌های پایانی جای خود را به چربی می‌دهد. ابروها رشد می‌کنند، جنین انگشت می‌مکد و ماهیچه‌های چهره‌اش منقبض می‌شوند — اگرچه هنوز بی‌معنا، تمرینِ آیندهٔ لبخند است.",
+ m:["رویش لانگو (موی کرکی محافظ)","ابروها شکل می‌گیرند","مکیدن انگشت و انقباض‌های بی‌معنای چهره"],
+ nu:[{n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"ورود به فاز رشد سریع حجم خون؛ آهن روزانه را فراموش نکنید."},
+     {n:"پروتئین",d:"۸۰ تا ۹۵ گرم در روز",y:"رشد عضلانی شتاب گرفته است."},
+     {n:"ویتامین C",d:"۸۵ میلی‌گرم در روز",y:"جذب آهن و ساخت کلاژن پوست کشیده‌شدهٔ شکم."}],
+ dt:"دورهٔ طلایی بارداری آغاز شد: تهوع رفته و شکم هنوز سبک است؛ پیاده‌روی و سفرهای کوتاه اگر در برنامه است، همین حالا.",
+ t:[],
+ sy:["خونریزی بینی خفیف و احتقان هورمونی","درد رباط گرد (کشش تیز کشالهٔ ران هنگام حرکت ناگهانی)"],
+ no:"درد رباط گرد با تغییر آرام وضعیت و دراز کشیدن تخفیف می‌یابد؛ اگر درد پیوسته و سور‌کننده باشد با پزشک مشورت کنید."},
+{sz:"سیب",ut:"به بزرگی یک کدو کوچک",ttl:"شنیدن از درون",ln:"۱۰٫۱ سانتی‌متر",wt:"۷۰ گرم",wtg:70,bpm:150,
+ f:"استخوانچه‌های گوش میانی صدا را منتقل می‌کنند: جنین اکنون صدای ضربان قلب، جریان خون و حتی صدای گوارش مادر را می‌شنود و صداهای بلند بیرون ممکن است او را بپراند. پوست هنوز آن‌قدر نازک است که رگ‌ها از زیرش پیدا هستند؛ پاها از دست‌ها بلندتر شده‌اند و بدن نسبت‌های متناسب‌تری دارد.",
+ m:["شنوایی فعال می‌شود — صداهای درون بدن مادر","پاها بلندتر از دست‌ها","تولید ادرار و تمرین منظم بلع"],
+ nu:[{n:"DHA (امگا ۳)",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"آغاز ساخت شبکهٔ شنوایی و مغز: هفته‌ای ۲ وعده ماهی چرب کم‌جیوه (سالمون، ساردین، قزل‌آلا) یا مکمل جلبک."},
+     {n:"ویتامین D",d:"۶۰۰ واحد بین‌المللی در روز",y:"تداوم برای جذب کلسیم و ایمنی."},
+     {n:"پروتئین",d:"۸۰ تا ۹۵ گرم در روز",y:"رشد بافتی سریع این هفته‌ها."}],
+ dt:"حالا وقت آن است که «برای دو نفر» بخورید — اما به معنای درستش: +۳۴۰ کالری از سه‌ماههٔ دوم، معادل یک میان‌وعدهٔ سالم (نان + پنیر + گردو + میوه)، نه دوبرابر کردن بشقاب.",
+ t:["در صورت نبود غربالگری ترکیبی: آزمایش سه‌گانه (کوآد اسکرین) بین ۱۵ تا ۲۰ هفته","آمنیوسنتز در صورت نشانگان ژنتیکی (۱۵ تا ۲۰ هفته)"],
+ sy:["تپش قلب گاهی هنگام خوابیدن به پهلو (طبیعی)","شکم کاملاً مشخص است"],
+ no:"صداهای آرام بخشی از دنیای جنین‌اند؛ صحبت کردن و آواز خواندن با او از همین حالا آشنایی صوتی می‌سازد که بعد از تولد، کودک را آرام می‌کند."},
+{sz:"آووکادو",ut:"به بزرگی یک کدو",ttl:"چهرهٔ تمام‌عیار",ln:"۱۱٫۶ سانتی‌متر",wt:"۱۰۰ گرم",wtg:100,bpm:150,
+ f:"چشم‌ها به جلوی صورت منتقل شده‌اند و گوش‌ها جای نهایی‌شان را گرفته‌اند — چهره به نمای کامل انسانی رسیده است. جنین برای نخستین‌بار حرکات چشم دارد؛ در دخترها رحم و لوله‌های رحمی شکل می‌گیرد و در پسرها بیضه‌ها آغاز به نزول می‌کنند.",
+ m:["چشم‌ها و گوش‌ها در جایگاه نهایی","حرکات چشم آغاز می‌شود","اندام‌های تناسلی در سونو قابل تشخیص‌اند"],
+ nu:[{n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"حجم خون مادر تا ۴۰ تا ۵۰٪ بیشتر می‌شود؛ کمبود آهن = خستگی، کم‌خونی و خطر زایمانی."},
+     {n:"مایعات",d:"۸ تا ۱۰ لیوان در روز",y:"کم‌آبی خستگی، سرگیجه و تکرر ادراری را بیشتر می‌کند؛ در این هفته‌ها جدی‌تر از همیشه."}],
+ dt:"در صورت کم‌خنیِ ابتدای بارداری، با پزشک دوز و زمان‌بندی آهن را تنظیم کنید؛ آهنِ یک‌روز‌درمیان در برخی موارد جذب بهتری دارد.",
+ t:["سونوی آناتومی (مورفولوژی) در بازهٔ ۱۸ تا ۲۲ — از حالا وقتش را رزرو کنید","در صورت تمایل: تعیین جنسیت در سونوی همین بازه"],
+ sy:["احتقان بینی و خونریزی لثه ادامه دارد","دردهای رباطی با حرکت","تغییر ذائقه (طبیعی)"],
+ no:"میان‌وعده‌های شیرین الکی را با میوه جایگزین کنید؛ میل به شیرین در بارداری طبیعی است اما قند افزوده باید محدود بماند."},
+{sz:"گلابی",ut:"به بزرگی یک کدو بزرگ",ttl:"کورهٔ چربی قهوه‌ای",ln:"۱۳ سانتی‌متر",wt:"۱۴۰ گرم",wtg:140,bpm:150,
+ f:"زیر پوست، «چربی قهوه‌ای» انباشته می‌شود — کورهٔ ویژه‌ای که در ساعت‌های نخست پس از تولد، نوزاد را گرم نگه می‌دارد. اسکلت از غضروف به استخوان سفت می‌شود، مفاصل همهٔ اندام‌ها حرکت می‌کنند و قد به کشیدگی می‌رسد. شنوایی رو به تکامل است؛ صدای بلند ممکن است جنین را به حرکت وادارد.",
+ m:["انباشت چربی قهوه‌ای (گرم‌ساز نوزاد)","سفت‌شدن اسکلت با کلسیم","پاسخ به صداهای بلند با حرکت"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"اسکلتی که سخت می‌شود، از ذخایر مادر می‌کشد؛ کلسیم را حتماً پوشش دهید."},
+     {n:"ویتامین C",d:"۸۵ میلی‌گرم در روز",y:"برای کلاژنِ پوست شکم در حال کشش — همراه با مرطوب‌کننده."},
+     {n:"روی",d:"۱۱ میلی‌گرم در روز",y:"برای رشد سلولی و ایمنی؛ تخمهٔ کدو، گوشت و حبوبات."}],
+ dt:"برای پاهای خسته و واریسِ اولیه: پیاده‌روی، بالانگه‌داشتن پاها هنگام استراحت و جوراب واریس در صورت توصیهٔ پزشک.",
+ t:[],
+ sy:["تعادل کمی تغییر می‌کند — مرکز ثقل در حال جابه‌جایی","خارش خفیف پوست شکم (کشش)"],
+ no:"مرطوب‌کننده را جدی بگیرید؛ خارش شدید همراه با ادرار تیره و خستگی (احتمال کلستاز) باید فوری گزارش شود — خوشبختانه نادر است."},
+{sz:"فلفل دلمه",ut:"به بزرگی یک خربزهٔ کوچک",ttl:"خمیازه و قرقره",ln:"۱۴٫۲ سانتی‌متر",wt:"۱۹۰ گرم",wtg:190,bpm:148,
+ f:"جنین خمیازه می‌کشد، مایع آمنیوتیک «می‌نوشد» و گاهی سکسکه دارد — مادر بعضی شب‌ها آن را مثل تپش‌های منظم ریز حس می‌کند. گوش‌ها در جای نهایی‌اند، مغز نواحی اختصاصی شنوایی می‌سازد، میلین (غلاف عصبی) رشد می‌کند و شبکیه به نور حساس می‌شود.",
+ m:["خمیازه و سکسکهٔ جنین","میان‌سنجیِ میلین آغاز می‌شود","شبکیه به نور حساس است"],
+ nu:[{n:"انرژی اضافه",d:"+۳۴۰ کیلوکالری در روز",y:"سهم سه‌ماههٔ دوم؛ از منابع مغذی: گردو و خرما و ماست، نه اسنک‌های صنعتی."},
+     {n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"تداوم ساخت اسکلتی."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"پشتیبان حجم خون در حال انبساط."}],
+ dt:"افزایش وزن هدف در بارداری با BMI طبیعی ۱۱٫۵ تا ۱۶ کیلوگرم است؛ از این هفته حدود نیم کیلو در هفته طبیعی است — نه بیشتر.",
+ t:["سونوی آناتومی (۱۸ تا ۲۲): بررسی کامل مغز، قلب، کلیه‌ها، ستون فقرات، صورت، اندام‌ها، جای‌گیری جفت و طول گردن رحم","در صورت نشانه: اندازه‌گیری طول گردن رحم برای پیش‌بینی زایمان زودرس"],
+ sy:["سکسکهٔ جنین حس می‌شود","درد کشالهٔ ران","خواب آشفته"],
+ no:"اگر جفت در سونو «پایین» گزارش شد نگران نباشید؛ در بیش از ۹۵٪ موارد با بزرگ‌شدن رحم تا سه‌ماههٔ سوم به جای امن بالا می‌رود — فقط پیگیری سونو لازم است."},
+{sz:"انبه",ut:"به بزرگی یک خربزهٔ کوچک",ttl:"ورنیکس — پوشش پنیری",ln:"۱۵٫۳ سانتی‌متر",wt:"۲۴۰ گرم",wtg:240,bpm:148,
+ f:"پوشش سفید و پنیری «ورنیکس کازئوزا» پوست جنین را می‌پوشاند — کرم ضدآب طبیعی که از پوست در برابر مایع آمنیوتیک محافظت می‌کند و در زایمان کمکِ لغزش است. مغز نواحی اختصاصی بویایی، چشایی، بینایی و لامسه می‌سازد و کلیه‌ها به‌طور کامل ادرار تولید می‌کنند.",
+ m:["ورنیکس پوست جنین را می‌پوشاند","پنج حس در حال سازمان‌دهی نهایی در مغز","موی سر مشخص می‌شود"],
+ nu:[{n:"پروتئین",d:"۸۵ تا ۱۰۰ گرم در روز",y:"رشد بافتی شتاب گرفته: عدسی، نخود، مرغ، ماهی و ماست را در وعده‌ها پخش کنید."},
+     {n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"ساخت مغز و شبکیه در اوج است؛ DHA را قطع نکنید."}],
+ dt:"وعده‌های حجیم را به چند وعدهٔ کوچک‌تر بشکنید؛ رحم در حال بالا آمدن است و معده جای کمتری دارد.",
+ t:[],
+ sy:["درد پشت شروع می‌شود","ورم خفیف دست و پا در پایان روز","تغییر در تعادل"],
+ no:"ورم خفیف پایین‌تنه در گرمای روز طبیعی است؛ اما ورمِ یک‌طرفه، دردناک یا همراه سردرد و دیدنِ هاله باید همان روز گزارش شود."},
+{sz:"موز",ut:"به بزرگی یک خربزه (تا ناف)",ttl:"نیمهٔ راه",ln:"۲۵٫۶ سانتی‌متر (سر تا پا)",wt:"۳۲۰ گرم",wtg:320,bpm:146,
+ f:"نیمهٔ راه! از این هفته رشد به جای «طول» بر «وزن» متمرکز می‌شود و قد از این پس «سر تا پا» گزارش می‌شود. جنین مایع می‌بلعد و نخستین مدفوع جنینی — مکونیوم — در روده انباشته می‌شود؛ خواب و بیداریِ منظم دارد و در دخترها، رحم شکل گرفته و ذخیرهٔ تخمک‌های یک عمر در اوج است.",
+ m:["نیمهٔ راه بارداری","انباشت مکونیوم در روده","چرخهٔ منظم خواب و بیداری"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"دندان‌سازی و استخوان‌بندی جنین از مادر می‌کشد."},
+     {n:"ویتامین D",d:"۶۰۰ واحد بین‌المللی در روز",y:"تداوم."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"سهم جنین از آهن در حال بیشتر شدن است."}],
+ dt:"مصرف ماهی را با قاعده ادامه دهید: هفته‌ای ۲ بار ماهی چرب کم‌جیوه عالی است؛ کوسه، شمشیرماهی و سابق‌کوه به‌خاطر جیوه ممنوع.",
+ t:["سونوی آناتومی در صورت انجام‌نشده — تا هفتهٔ ۲۲","شروع شمارش حرکات جنین از هفتهٔ ۲۴ تا ۲۸ توصیه می‌شود"],
+ sy:["ریزش موقتی مو یا تغییر بافت آن","تورم خفیف","کشش ناف با رشد شکم"],
+ no:"از این هفته در هر ویزیت، رشد رحم با سنجاقک اندازه‌گیری می‌شود؛ رشد کمتر یا بیشتر از حد انتظار فقط نشانه‌ای برای بررسی است، نه تشخیص."},
+{sz:"هویج",ut:"به بزرگی یک آناناس",ttl:"حرکات قوی و دنیای چشایی",ln:"۲۷٫۱ سانتی‌متر",wt:"۳۹۰ گرم",wtg:390,bpm:145,
+ f:"حرکات از «پروانه‌زدن» به ضربه و لگد تبدیل شده — و به‌زودی از بیرون شکم هم دیده می‌شود. جنین طعم مایع آمنیوتیک را تشخیص می‌دهد؛ مایع شیرین بلع را بیشتر و تلخی را کمتر می‌کند. ابروها کامل شده و پلک‌ها تمرین حرکت می‌کنند.",
+ m:["ضربه‌های قوی‌تر و قابل‌شمارش","حس چشایی فعال","حرکات چشم هماهنگ‌تر"],
+ nu:[{n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تداوم پشتیبانی خون‌سازی."},
+     {n:"فیبر و آب",d:"۲۵ تا ۳۰ گرم فیبر + ۱۰ لیوان آب",y:"کنترل یبوستِ شایع این هفته‌ها."},
+     {n:"منیزیم",d:"۳۵۰ میلی‌گرم در روز",y:"پیشگیری از کرامپ‌های عضلانی؛ بادام، اسفناج و حبوبات."}],
+ dt:"غذاهای شیرین طبیعی (خرما با شیر گرم) هم میل شیرین را پاسخ می‌دهند هم آهن و کلسیم می‌رسانند — میان‌وعدهٔ کامل هفته‌های میانی بارداری.",
+ t:[],
+ sy:["دندان‌قروچهٔ شبانه در برخی مادران","کشش پوست و خارش"],
+ no:"مکمل کلسیم و آهن را با فاصلهٔ دست‌کم دو ساعت مصرف کنید؛ کلسیم جذب آهن را مهار می‌کند."},
+{sz:"پاپایا",ut:"به بزرگی یک آناناس",ttl:"حواس کامل، چهرهٔ کامل",ln:"۲۸٫۶ سانتی‌متر",wt:"۴۷۰ گرم",wtg:470,bpm:145,
+ f:"لب‌ها، ابروها و پلک‌ها کامل‌اند و چهره در سونوی سه‌بعدی کاملاً شناختنی است. گوش داخلی تقریباً کامل شده — حس تعادل جنین تکامل یافته و می‌داند بالا و پایین کجاست. جنین دست‌هایش را لمس می‌کند، رفلکس گرفتن دستش قوی است و به لمس دیوارهٔ شکم مادر پاسخ می‌دهد.",
+ m:["حس تعادل (گوش داخلی) تکامل می‌یابد","دست‌ها به دهان می‌رسند","پاسخ به لمس"],
+ nu:[{n:"کولین",d:"۴۵۰ میلی‌گرم در روز",y:"سوخت اصلی ساخت غشای نورون‌ها و حافظه: زردهٔ تخم‌مرغ، سویا و (به مقدار کم) جگر — اغلب مادران کم می‌گیرند."},
+     {n:"پروتئین",d:"۸۵ تا ۱۰۰ گرم در روز",y:"رشد بافتی."},
+     {n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"تداوم ساخت مغز."}],
+ dt:"یک زردهٔ تخم‌مرغِ کاملاً پخته در روز، تقریباً یک‌سوم نیاز کولین را می‌پوشاند — از اقتصاد تغذیه‌ای عالی این هفته‌ها.",
+ t:[],
+ sy:["نخستین انقباضات بی‌درد «براکستون‌هیکس» ممکن است احساس شود","کشش پوست ادامه دارد"],
+ no:"انقباضات براکستون‌هیکس نامنظم، بی‌درد و با استراحت برطرف‌شونده‌اند؛ منظم، دردناک و پیش‌رونده = زایمان زودرس — فوری تماس بگیرید."},
+{sz:"گریپ‌فروت بزرگ",ut:"به بزرگی یک آناناس بزرگ",ttl:"شش‌ها شاخه می‌زنند",ln:"۳۰٫۱ سانتی‌متر",wt:"۵۵۰ گرم",wtg:550,bpm:140,
+ f:"شش‌ها با شتاب شاخه‌شاخه می‌شوند و بافت تنفسی نابالغ در حال ساخته‌شدن است؛ پوست هنوز شل و چروک است چون چربی زیرپوستی کافی ندارد. گوش داخلی کامل شده و حس تعادل آماده است؛ جنین صداهای بیرون از بدن مادر را بهتر می‌شنود و وزنش به حدود نیم کیلوگرم رسیده است.",
+ m:["ریشه‌گیری شاخه‌ای راه‌های هوایی","حس تعادل (گوش داخلی) کامل","پوست چروک — چربی زیرپوستی هنوز کم"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"ادامهٔ استخوان‌سازی سنگین."},
+     {n:"فسفر",d:"از لبنیات، تخم‌مرغ و ماهی",y:"همراه کلسیم برای ساخت استخوان؛ نیاز کمی بیشتر از قبل از بارداری است."},
+     {n:"پروتئین",d:"۸۵ تا ۱۰۰ گرم در روز",y:"انباشت بافتی."}],
+ dt:"از نشاسته‌های کامل (برنج کامل، سیب‌زمینی، نان سبوس‌دار) انرژی بگیرید؛ قندهای سریع نوسان قند خون را بیشتر می‌کنند.",
+ t:[],
+ sy:["ورم و سنگینی پاها","درد پشت و لگن","ادامهٔ یبوست"],
+ no:"نشانه‌های زایمان زودرس را بدانید: انقباض منظم هر ۱۰ دقیقه یا کمتر، ترشح مایع، خونریزی، درد شدید لگن یا کمر. پیش از هفتهٔ ۳۷، هرکدام = تماس فوری."},
+{sz:"بلال ذرت",ut:"به بزرگی یک کدو حلوایی بزرگ",ttl:"آستانهٔ بقای اولیه",ln:"۳۱٫۵ سانتی‌متر",wt:"۶۵۰ گرم",wtg:650,bpm:140,
+ f:"هفتهٔ ۲۴ در متون پزشکی «آستانهٔ بقای اولیه» است: در صورت تولد از این هفته به بعد، با مراقبت ویژهٔ NICU شانس بقای قابل‌توجهی وجود دارد — و هر روزِ بیشترِ ماندن در رحم، این شانس را چند برابر می‌کند. هم‌زمان سلول‌های ریه ساخت «سورفکتانت» را آغاز می‌کنند؛ مادهٔ صابون‌مانندی که حبابچه‌های ریوی را از فروریختن نگه می‌دارد و کلید نفس‌کشیدن بیرون از رحم است. جنین در سونو حرکات تنفسیِ تمرینی نشان می‌دهد و پوست با پرشدن مویرگ‌ها کم‌کم صورتی می‌شود.",
+ m:["آستانهٔ بقای اولیه — هفتهٔ ۲۴","آغاز ساخت سورفکتانت در ریه‌ها","حرکات تنفسی تمرینی در سونو"],
+ nu:[{n:"رژیم کم‌قندِ پرتکرار",d:"۳ وعده + ۳ میان‌وعدهٔ کوچک",y:"برای آمادگی آزمایش قند و پیشگیری از دیابت بارداری؛ ۱۰ تا ۱۵ دقیقه پیاده‌روی بعد از غذا قند خون را محسوس پایین می‌آورد."},
+     {n:"فیبر",d:"۲۵ تا ۳۰ گرم در روز",y:"کنترل قند و یبوست با هم."}],
+ dt:"از آزمایش قند نترسید؛ رژیم شب قبل تغییر خاصی نمی‌خواهد — فقط ناشتایی ۸ ساعته و پرهیز از قند افزودهٔ شب قبل.",
+ t:["آزمایش تحمل قند خون (OGTT) بین ۲۴ تا ۲۸ هفته: ۷۵ گرم گلوکز و سه نمونهٔ خون","شمارش خون کامل برای کم‌خونی","برای Rh منفی: برنامه‌ریزی تزریق Anti-D در حدود هفتهٔ ۲۸"],
+ sy:["سوزش سردل","ورم خفیف","خارش پوست"],
+ no:"دیابت بارداری با رژیم و پیاده‌روی در اغلب موارد کنترل می‌شود و با مدیریت درست عاقبت سالمی دارد؛ تشخیصش شکست نیست، نقشهٔ راه است."},
+{sz:"شلغم",ut:"به بزرگی یک هندوانهٔ کوچک",ttl:"مو و کف دست",ln:"۳۳ سانتی‌متر",wt:"۷۵۰ گرم",wtg:750,bpm:140,
+ f:"موی سر رنگ و جنس خود را نشان می‌دهد و بر اساس ژنتیک، پرپشت یا کم‌موست. کف دست‌ها چین می‌افتد، حفرهٔ بینی باز می‌شود و مویرگ‌های زیر پوست پر می‌شوند — پوست صورتی‌تر می‌شود. جنین برای شنیدن صداهای مادر «تنظیم» شده است.",
+ m:["رنگ و جنس موی سر مشخص می‌شود","چین‌های کف دست","مویرگ‌ها پوست را صورتی می‌کنند"],
+ nu:[{n:"بتاکاروتن",d:"از هویج، کدو حلوایی و زردک",y:"منبع امن ویتامین A برای پوست و چشم جنین."},
+     {n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"تداوم."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تداوم."}],
+ dt:"برای گزگز دست‌ها (سندرم تونل کارپ): مچ‌بند طبی، تکان ملایم دست‌ها و تغییر وضعیت خواب کمک می‌کند.",
+ t:[],
+ sy:["گزگز و بی‌حسی دست‌ها","سنگینی و ورم","خستگی زودرس"],
+ no:"برای خواب بهتر: بالش زیر شکم و میان زانوها، اتاق خنک و دوش آب ولرم پیش از خواب."},
+{sz:"کدو",ut:"به بزرگی یک هندوانهٔ کوچک",ttl:"چشم‌ها باز می‌شوند",ln:"۳۴٫۴ سانتی‌متر",wt:"۸۵۰ گرم",wtg:850,bpm:138,
+ f:"پلک‌هایی که از حدود هفتهٔ ۹ جوش خورده بودند جدا می‌شوند و جنین برای نخستین‌بار پلک می‌زند. چراغی که روی شکم بگذارید، چشم‌هایش را دنبال می‌کند. صداهای بلند او را می‌پراند و صدای مادر و آهنگ‌های تکراری را تشخیص می‌دهد — بعد از تولد همین صداها آرامش‌بخشش خواهند بود.",
+ m:["باز شدن پلک‌ها و پلک‌زدن","پاسخ به نور مستقیم روی شکم","دنبال‌کردن صدای آشنا"],
+ nu:[{n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"شبکیهٔ چشمِ تازه‌بازشده و مغز، DHA فراوان می‌طلبند."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تداوم."},
+     {n:"ویتامین D",d:"۶۰۰ واحد بین‌المللی در روز",y:"تداوم."}],
+ dt:"اگر جنین شب‌ها فعال است، کار خاصی لازم نیست؛ الگوی خواب او پس از تولد به‌تدریج تنظیم می‌شود — این تمرین نیست، فقط راحت‌ترین وضعیت اوست.",
+ t:["در صورت Rh منفی: آماده‌سازی تزریق ایمونوگلوبولین Anti-D (حدود هفتهٔ ۲۸)","واکسن Tdap (کزات-دیفتری-سیاه‌سرفه) در بازهٔ ۲۷ تا ۳۶ هفته برنامه‌ریزی می‌شود"],
+ sy:["تنگی نفس خفیف (فشار رحم روی دیافراگم)","درد زیر دنده‌ها","سندرم پای بی‌قرار در برخی مادران"],
+ no:"واکسن Tdap در هر بارداری تکرار می‌شود؛ پادتن آن از جفت عبور می‌کند و نوزاد را در ماه‌های خطرناک سیاه‌سرفه محافظت می‌کند — برای اعضای خانه هم توصیه می‌شود."},
+{sz:"گل‌کلم",ut:"به بزرگی یک هندوانهٔ کوچک",ttl:"مغز رؤیاها روشن می‌شود",ln:"۳۵٫۸ سانتی‌متر",wt:"۹۷۰ گرم",wtg:970,bpm:138,
+ f:"موج‌های مغزی الگوی خواب و بیداری را کامل کرده‌اند؛ جنین دوره‌های خواب REM — خوابی که در نوزاد و بزرگسال با رؤیا همراه است — می‌گذراند. شنوایی کامل است: صدای مادر را از سایر صداها تشخیص می‌دهد و ضربان قلبِ آشنا او را آرام می‌کند. ریه‌ها هنوز نارسند.",
+ m:["خواب REM و احتمالاً رؤیا","تشخیص صدای مادر از سایر صداها","پاسخ به موسیقی و لالایی"],
+ nu:[{n:"کولین",d:"۴۵۰ میلی‌گرم در روز",y:"اوج ساخت غشای نورون‌ها؛ تخم‌مرغ و سویا."},
+     {n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"شتاب رشد مغز ادامه دارد."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"پرشدن ذخایر آهن جنین."}],
+ dt:"دنیای صوتی جنین را جدی بگیرید: صحبت، کتاب‌خواندن و لالاییِ یکسان، پس از تولد اثر آرام‌بخش شگفتی دارند.",
+ t:[],
+ sy:["کرامپ‌های شبانهٔ ساق پا","تکرر ادرار","سردردهای تنشی"],
+ no:"پایان سه‌ماههٔ دوم؛ از هفتهٔ ۲۸ «شمارش حرکات روزانه» را شروع کنید: در یک ساعت آرام، ۱۰ حرکت باید احساس شود (یا طی ۲ ساعت در طول روز). کاهش محسوس حرکات را همیشه همان روز گزارش کنید."},
+{sz:"بادمجان",ut:"به بزرگی یک هندوانهٔ نیمه",ttl:"آغاز سه‌ماههٔ سوم",ln:"۳۷٫۱ سانتی‌متر",wt:"۱۱۰۰ گرم",wtg:1100,bpm:136,
+ f:"جنین پلک می‌زند، چربی زیرپوستی پوست چروک را صاف می‌کند و مغز شیارها و چین‌های بیشتری برای جای نورون‌ها می‌سازد. خواب REM غالب است و چشم‌ها زیر پلک حرکت می‌کنند. مغز استخوان، جای کبد را در خون‌سازی می‌گیرد — سیستم مستقل جنین در حال راه‌اندازی کامل است.",
+ m:["پوست با چربی صاف‌تر می‌شود","مغز استخوان: کارخانهٔ اصلی گلبول‌های قرمز","پلک‌زدن و خواب رؤیایی"],
+ nu:[{n:"انرژی اضافه",d:"+۴۵۰ کیلوکالری در روز",y:"سهم سه‌ماههٔ سوم؛ روی کیفیت (پروتئین، چربی مفید، فیبر) تمرکز کنید نه حجم."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"ذخیرهٔ آهن جنین در این هفته‌ها پر می‌شود."},
+     {n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"تداوم."}],
+ dt:"کالری اضافه را با میان‌وعدهٔ حساب‌شده بدهید: نان سبوس‌دار + پنیر + گردو + خرما + یک لیوان شیر — تقریباً کامل.",
+ t:["تزریق Anti-D برای مادران Rh منفی","واکسن Tdap در صورت انجام‌نشده","آغاز ویزیت‌های دوهفته‌ای تا هفتهٔ ۳۶","شمارش روزانهٔ حرکات جنین"],
+ sy:["انقباضات براکستون‌هیکس پررنگ‌تر","سنگینی پاها و واریس","مشکلات خواب"],
+ no:"سه علامت پره‌اکلامپسی را حفظ کنید: سردرد شدید و مداوم، تاری دید یا دیدن نقاط نورانی، و درد زیر دندهٔ راست. هرکدام = تماس همان لحظه، بدون معطلی."},
+{sz:"کدو حلوایی",ut:"به بزرگی یک هندوانهٔ نیمه",ttl:"مغز چین می‌خورد",ln:"۳۸٫۴ سانتی‌متر",wt:"۱۲۵۰ گرم",wtg:1250,bpm:135,
+ f:"مغز برای جای دادن نورون‌های بیشتر، شیارها و چین‌های تازه می‌سازد و سرعت رشدش چشمگیر است. عضلات و ریه‌ها در حال بلوغ‌اند و جنین روز به روز «چاق‌تر» و کم‌تحرک‌تر می‌شود — نه از تنبلی، از کم‌شدن جا.",
+ m:["چین‌خوردگی‌های بیشتر مغز","بلوغ عضلات و ریه","ورود آنتی‌بادی‌های مادر به خون جنین"],
+ nu:[{n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"آخرین ماه‌های ساخت بافت و ذخیرهٔ ایمنی مادر."},
+     {n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"۶۰٪ ساختار مغز از چربی است."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تداوم."}],
+ dt:"برای سوزش سردل: وعده‌های کوچک، شام زودهنگام، پرهیز از تند و چرب و بالانگه‌داشتن سر تخت با بالش — مؤثرتر از هر داروی بدون نسخه.",
+ t:[],
+ sy:["سوزش سردل","تنگی نفس","درد لگن"],
+ no:"حالا وقت آماده‌سازی «کیسهٔ زایمان» است؛ چک‌لیست: لباس مادر، پوشک و لباس نوزاد، وسایل بهداشتی، مدارک و پروندهٔ بارداری، آب و خرما."},
+{sz:"خیار",ut:"به بزرگی یک هندوانهٔ نیمه",ttl:"اوج مایع آمنیوتیک",ln:"۳۹٫۶ سانتی‌متر",wt:"۱۴۰۰ گرم",wtg:1400,bpm:135,
+ f:"مایع آمنیوتیک نزدیک حداکثر خود است (حدود ۸۰۰ میلی‌لیتر) و جنین فضای خوبی برای تمرین دارد. مغز چین‌خوردگی می‌کند، چشم‌ها کاملاً باز و سرگردان‌اند و لانگو شروع به ریزش می‌کند؛ چربی زیرپوست انباشته می‌شود و پوست کم‌کم شفافیت روزهای اول را از دست می‌دهد.",
+ m:["اوج حجم مایع آمنیوتیک (حدود ۸۰۰ میلی‌لیتر)","ریزش آغازین لانگو","چشم‌های باز و سرگردان"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"آخرین ماه‌های استخوان‌سازی سنگین."},
+     {n:"ویتامین K",d:"از سبزیجات برگ‌سبز تیره",y:"برای سیستم انعقادی سالم نوزاد؛ کمی بالاتر از نیاز معمول توصیه می‌شود."},
+     {n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"تداوم."}],
+ dt:"آب را فراموش نکنید؛ کم‌آبی در این هفته‌ها انقباضات براکستون‌هیکس را پررنگ‌تر و خطر عفونت ادراری را بیشتر می‌کند.",
+ t:["سونوی رشد و برآورد وزن در بسیاری از مراکز (۲۸ تا ۳۴ هفته)","بررسی جای‌گیری جفت در صورت گزارش قبلی جفت پایین"],
+ sy:["خستگی عمومی","درد پشت و لگن","خواب پرپیچش"],
+ no:"در صورت گزارش «کمِ آب» (Oligohydramnios) یا زیادِ آن، فقط پایش دقیق‌تر لازم است؛ آب کافی بنوشید و ویزیت‌ها را جدی بگیرید."},
+{sz:"نارگیل",ut:"به بزرگی یک هندوانهٔ بی‌دانه",ttl:"هر پنج حس فعال",ln:"۴۰٫۷ سانتی‌متر",wt:"۱۶۰۰ گرم",wtg:1600,bpm:132,
+ f:"هر پنج حس جنین فعال است: به صدا گوش می‌دهد، نور را حس می‌کند، لمس را درمی‌یابد، مایع را می‌چشد و بوی آن را تشخیص می‌دهد. افزایش وزن به موتور اصلی رشد تبدیل شده — از این هفته حدود ۲۰۰ گرم در هفته وزن اضافه می‌کند و فضای حرکت کم می‌شود.",
+ m:["پنج حس کاملاً فعال","شتاب وزنی: حدود ۲۰۰ گرم در هفته","چرخه‌های کامل خواب با REM"],
+ nu:[{n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"مغز در حال افزوده‌کردن حجم قابل‌توجه."},
+     {n:"کولین",d:"۴۵۰ میلی‌گرم در روز",y:"تداوم ساخت نورون."},
+     {n:"انرژی",d:"+۴۵۰ کیلوکالری در روز",y:"تداوم سه‌ماههٔ سوم."}],
+ dt:"میان‌وعده‌های کوچک هر ۳ ساعت بهتر از سه وعدهٔ سنگین است؛ بدن به انرژی پیوسته نیاز دارد.",
+ t:[],
+ sy:["تکرر ادرار","سنگینی سینه‌ها","ادامهٔ تنگی نفس"],
+ no:"ورم ناگهانی دست‌ها و صورت را جدی بگیرید — از نشانه‌های پره‌اکلامپسی است."},
+{sz:"سیب‌زمینی شیرین بزرگ",ut:"به بزرگی یک هندوانهٔ بی‌دانه",ttl:"چرخش به سر-پایین",ln:"۴۱٫۸ سانتی‌متر",wt:"۱۸۰۰ گرم",wtg:1800,bpm:130,
+ f:"اکنون جای جنین در رحم کم است؛ تا هفتهٔ ۳۶ اغلب جنین‌ها به وضعیت سر-پایین می‌چرخند — در نمایشگر سه‌بعدی همین چرخش تدریجی را می‌بینید. لانگو می‌ریزد، استخوان‌ها سخت می‌شوند به‌جز صفحات نرم جمجمه و بیشتر زمان جنین را خواب REM می‌گذراند.",
+ m:["چرخش تدریجی به وضعیت سر-پایین","ریزش بیشتر لانگو","استخوان‌های سخت به‌جز جمجمهٔ نرم"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"سخت‌شدن استخوان‌ها در اوج؛ جنین روزانه ده‌ها میلی‌گرم کلسیم از مادر می‌گیرد."},
+     {n:"ویتامین D",d:"۶۰۰ واحد بین‌المللی در روز",y:"تداوم."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تداوم."}],
+ dt:"پنج وعدهٔ کوچک بهتر از سه وعدهٔ بزرگ هضم می‌شود؛ فضای معده با ارتفاع رحم کم شده است.",
+ t:["بررسی موقعیت جنین در ویزیت — اگر هنوز سر پایین نیست، نگران نباشید؛ تا هفتهٔ ۳۶ زمان هست"],
+ sy:["تپش قلب گاهی","درد دنده‌ها","ادامهٔ تکرر ادرار"],
+ no:"اگر جنین سریع رشد می‌کند یا دیابت بارداری دارید، برنامه با سونوی رشد کامل‌تر می‌شود؛ با تیم درمانی هماهنگ باشید."},
+{sz:"آناناس",ut:"به بزرگی یک هندوانهٔ بی‌دانه",ttl:"صفحات نرم جمجمه",ln:"۴۲٫۹ سانتی‌متر",wt:"۲۰۰۰ گرم",wtg:2000,bpm:130,
+ f:"جمجمه از پنج صفحهٔ استخوانی نرم ساخته شده که با «فونتانل» (ملاج) به هم متصل‌اند — طراحی هوشمند طبیعت برای عبور از کانال باریک زایمان و رشد سریع مغز پس از تولد. استخوان‌های دیگر سخت‌تر شده‌اند و همین یعنی نیاز کلسیمی مادر در اوج است.",
+ m:["جمجمهٔ صفحاتی و فونتانل‌ها","سفت‌شدن کامل‌تر اسکلت","پوست صاف و صورتی"],
+ nu:[{n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"اوج نیاز؛ اگر لبنیات نمی‌خورید حتماً با پزشک دربارهٔ مکمل صحبت کنید."},
+     {n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"تداوم."},
+     {n:"چربی مفید",d:"مغزها، روغن زیتون، آووکادو",y:"ترکیب نهایی سیستم عصبی و چربی بدن."}],
+ dt:"شب‌ها پاها را بالا بگذارید و در روز استراحت‌های کوتاه بگنجانید؛ بدن شما در حال انباشت انرژی زایمان است.",
+ t:[],
+ sy:["درد لگن شدیدتر (اثر هورمون ریلکسین)","مشکلات خواب","کشش ناف"],
+ no:"درد لگنِ شدید می‌تواند «درد شرمگاهی» باشد؛ کمربند حمایت لگن و فیزیوتراپی تخصصی زایمانی کمک می‌کند."},
+{sz:"خربزه",ut:"به بزرگی یک هندوانه",ttl:"شش‌های تقریباً آماده",ln:"۴۳٫۹ سانتی‌متر",wt:"۲۲۰۰ گرم",wtg:2200,bpm:130,
+ f:"سیستم عصبی مرکزی تقریباً کامل و شش‌ها به بلوغ رسیده‌اند؛ سورفکتانت در بیشتر موارد کافی است و در صورت تولد از این هفته، تنفس خودکار معمولاً موفق است. مکیدن، بلع و چنگ‌زدن تمرین می‌شود؛ جنین چاق‌تر و گردتر شده و ورنیکس هنوز پوستش را می‌پوشاند.",
+ m:["شش‌ها نزدیک بلوغ","آماده‌سازی مهارت‌های مکیدن و بلع","گردشدن اندام‌ها با انباشت چربی"],
+ nu:[{n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"آخرین ماه‌های جهش حجم مغز."},
+     {n:"کولین",d:"۴۵۰ میلی‌گرم در روز",y:"تداوم."},
+     {n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"تداوم."}],
+ dt:"به وعده‌های شبانه دقت کنید؛ قند افزودهٔ دیرهنگام هم سوزش سردل را بدتر می‌کند هم خواب را.",
+ t:[],
+ sy:["خستگی زیاد","بی‌خوابی","احساس داغ‌شدن (هورمون‌ها)"],
+ no:"تعداد حرکات باید الگوی ثابتی بماند؛ «کاهش حرکات با بزرگ‌شدن جنین» طبیعی نیست — شمارش روزانه را ادامه دهید."},
+{sz:"طالبی",ut:"به بزرگی یک هندوانه",ttl:"کبد و کلیه‌ها آماده",ln:"۴۵ سانتی‌متر",wt:"۲۴۵۰ گرم",wtg:2450,bpm:130,
+ f:"رشد قد کند و رشد وزن شتاب می‌گیرد؛ کلیه‌ها کامل‌اند، کبد بخشی از پردازش مواد داخلی را بر عهده دارد و سیستم عصبی تقریباً کامل است. در صورت تولد از این هفته، بقا بیش از ۹۹٪ است و اکثریت قاطع بدون عارضهٔ جدی طولانی‌مدت بزرگ می‌شوند — اما هر روزِ بیشترِ ماندن در رحم، نوزادی سالم‌تر است.",
+ m:["کلیه‌های کامل","آغاز کار کامل کبد","بقای بیش از ۹۹٪ در صورت تولد"],
+ nu:[{n:"انرژی و مایعات",d:"+۴۵۰ کیلوکالری + آب فراوان",y:"سوخت نهایی ساخت بافت و آمادگی شیردهی."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"ذخیرهٔ آهن نوزاد برای ماه‌های اول زندگی در حال تکمیل است."},
+     {n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"تداوم."}],
+ dt:"تغذیهٔ سالم مستقیماً در کیفیت کلستروم (شیر اول) اثر می‌گذارد؛ آب و پروتئین را ادامه دهید.",
+ t:["نمونه‌گیری استرپتوکوک گروه B (GBS) از واژینال و مقعد (۳۵ تا ۳۷ هفته)","در صورت GBS مثبت: آنتی‌بیوتیک وریدی حین زایمان برنامه‌ریزی می‌شود"],
+ sy:["فشار سنگین لگن","کشش و بی‌حسی کشالهٔ ران","ترشح کلستروم از پستان"],
+ no:"GBS در ناحیهٔ تناسلی حدود یک‌سوم زنان وجود دارد و برای مادر بی‌خطر است؛ فقط حین زایمان برای نوزاد خطر می‌سازد و غربالگری دقیقاً برای همین است."},
+{sz:"کاهو بزرگ",ut:"به بزرگی یک هندوانه",ttl:"جای‌گیری در لگن",ln:"۴۶ سانتی‌متر",wt:"۲۷۰۰ گرم",wtg:2700,bpm:128,
+ f:"«Lightening»: در اغلب بارداری‌ها سر جنین در لگن جای می‌گیرد (Engagement) — نفس‌کشیدن برای مادر آسان‌تر و فشار روی لگن بیشتر می‌شود. عضلات مکیدن آمادهٔ شیرخوردن‌اند، لانگو و ورنیکس در حال کاهش و چربیِ گرم‌نگه‌دار در حال انباشت نهایی است.",
+ m:["جای‌گیری سر در لگن","آمادگی کامل عضلات مکیدن","انباشت نهایی چربی"],
+ nu:[{n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تکمیل ذخیرهٔ آهن جنین."},
+     {n:"انرژی",d:"+۴۵۰ کیلوکالری در روز",y:"سوخت آمادگی زایمان."},
+     {n:"کلسیم",d:"۱۰۰۰ میلی‌گرم در روز",y:"تداوم."}],
+ dt:"وعده‌های سبک و پرتکرار؛ دستگاه گوارش با فشار لگنِ فرورفته آرام‌تر شده و تحمل غذای سنگین کمتر است.",
+ t:["آغاز ویزیت‌های هفتگی","بررسی موقعیت و جای‌گیری جنین","GBS در صورت انجام‌نشده","بررسی گردن رحم در برخی پروتکل‌ها"],
+ sy:["آسان‌تر شدن تنفس","فشار و تکرر ادرار شدیدتر","لرزش‌های شکم (حرکت جنین در فضای کم)"],
+ no:"نشانه‌های زایمان: انقباض منظم و پیش‌رونده که با استراحت برطرف نمی‌شود، از دست رفتن پلاگ موکوسی، پارگی کیسهٔ آب. اگر کیسه پاره شد — حتی بدون درد — به مرکز زایمان بروید."},
+{sz:"شلغم بزرگ",ut:"به بزرگی یک هندوانهٔ بزرگ",ttl:"ترم اولیه",ln:"۴۷ سانتی‌متر",wt:"۲۹۰۰ گرم",wtg:2900,bpm:128,
+ f:"جنین رسماً «ترم اولیه» است: بقا بدون عوارض جدی تقریباً قطعی، اما هفته‌های آخر برای مغز و ریه همچنان طلایی‌اند. دست‌ها محکم می‌گیرند، مکیدن تمرین جدی می‌شود و جنین روزانه حدود ۳۰ گرم وزن اضافه می‌کند.",
+ m:["رسیدن به ترم اولیه","تمرین جدی مکیدن و گرفتن","حدود ۵٪ جنین‌ها هنوز در وضعیت غیر سر-پایینند"],
+ nu:[{n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"تداوم تا روز زایمان."},
+     {n:"آهن",d:"۲۷ میلی‌گرم در روز",y:"تداوم."},
+     {n:"مایعات",d:"۸ تا ۱۰ لیوان در روز",y:"آمادگی بدن برای زایمان و شیردهی."}],
+ dt:"غذاهای ملایم و آسان‌هضم در این روزها؛ سیستم گوارش شما هم در حال آماده‌سازی زایمان است.",
+ t:["ویزیت هفتگی: بررسی شکم، ضربان، جای‌گیری","در صورت ادامهٔ بارداری: NST در هفته‌های آینده"],
+ sy:["ترشح کلستروم","غریزهٔ لانه‌گزینی (سروسامان دادن خانه)","بی‌قراری یا آرامش غریزی"],
+ no:"از این هفته هر علامت زایمان را جدی بگیرید؛ مسیر رسیدن به مرکز زایمان را بدانید و شماره‌های اورژانس را در دسترس نگه دارید."},
+{sz:"کدو حلوایی کوچک",ut:"به بزرگی یک هندوانهٔ بزرگ",ttl:"آخرین چین‌های مغز",ln:"۴۸ سانتی‌متر",wt:"۳۱۰۰ گرم",wtg:3100,bpm:128,
+ f:"مغز و ریه آخرین تکمیل‌های خود را می‌کنند؛ ناخن‌های دست و پا کامل شده‌اند — گاهی چنان بلند که باید بعد از تولد کوتاه شوند. مکونیوم در روده انباشته و چربی بدن به حدود ۱۵٪ رسیده است.",
+ m:["تکمیل نهایی ریه و مغز","ناخن‌های کامل","۱۵٪ وزن جنین: چربی"],
+ nu:[{n:"DHA",d:"۲۰۰ تا ۳۰۰ میلی‌گرم در روز",y:"۸۰٪ رشد مغز نوزاد تا ۲ سالگی ادامه دارد؛ ذخیرهٔ DHA همین حالا ساخته می‌شود."},
+     {n:"پروتئین",d:"۹۰ تا ۱۰۰ گرم در روز",y:"تداوم."},
+     {n:"مایعات",d:"آب فراوان",y:"آمادگی زایمان."}],
+ dt:"به سیگنال‌های بدنت گوش کن: اشتهای کم یا ولع شدید در روزهای نزدیک زایمان، هر دو گزارش شده‌اند.",
+ t:[],
+ sy:["سردرد خفیف و بدن‌درد پیش از زایمان (در برخی)","اسهال ملایم هورمونی","انقباضات آماده‌کننده"],
+ no:"تفاوت انقباض واقعی و تمرینی: واقعی منظم، فشرده‌شونده و با فاصلهٔ کوتاه‌شونده است و با تغییر وضعیت و استراحت برطرف نمی‌شود."},
+{sz:"هندوانهٔ کوچک",ut:"به بزرگی یک هندوانهٔ بزرگ",ttl:"ترم کامل",ln:"۴۹ سانتی‌متر",wt:"۳۳۰۰ گرم",wtg:3300,bpm:128,
+ f:"جنین «ترم کامل» است: قفسهٔ سینه برجسته، اندام‌ها گرد و پوست با ذخیرهٔ چربی، صاف. مغز به اندازه‌ای رسیده که به سیگنال‌های شروع زایمان حساس است — در واقع آغاز زایمان، دیالوگ هورمونی میان جنین و بدن مادر است.",
+ m:["رسیدن به ترم کامل","آمادگی کامل دستگاه مکیدن","حدود ۹۷٪ جنین‌ها سر-پایینند"],
+ nu:[{n:"کربوهیدرات پیچیده",d:"برنج و نان سبوس‌دار، خرما",y:"سوخت اصلی انرژی زایمان."},
+     {n:"مایعات",d:"آب و سوپ‌های روشن",y:"زایمان thirsty work است؛ آب‌رسانی مداوم استقامت را بالا می‌برد."}],
+ dt:"روزهای زایمان: وعده‌های سبک و پرانرژی (نان و خرما و سوپ)، آب به‌اندازه؛ ناشتایی طولانی در زایمان توصیه نمی‌شود.",
+ t:["ویزیت هفتگی + NST و بررسی مایع آمنیوتیک در صورت ادامهٔ بارداری"],
+ sy:["نوسانات خلقی","خستگی و انتظار","نشانه‌های آماده‌سازی بدن"],
+ no:"فقط حدود ۵٪ زایمان‌ها دقیقاً در روز موعد رخ می‌دهد؛ تا هفتهٔ ۴۱ و بیشتر، با پایش طبیعی، «خیلی بعد از موعد» تلقی نمی‌شود. چند روز جابه‌جایی طبیعی است."},
+{sz:"یک نوزاد کامل",ut:"به بزرگی یک هندوانهٔ بزرگ",ttl:"روز موعد",ln:"حدود ۵۰ سانتی‌متر",wt:"حدود ۳۴۰۰ گرم",wtg:3400,bpm:125,
+ f:"میانگین: طول حدود ۵۰ سانتی‌متر و وزن حدود ۳٫۴ کیلوگرم — با چین‌های ستاره‌ای روی زانو و بازو، لپ‌های پر و مشت‌های محکم. جمجمهٔ نرم برای عبور از کانال زایمان شکل می‌گیرد و در روزهای نخست پس از تولد، سر به‌آرامی فرم نهایی می‌گیرد. تمام سیستم‌ها آماده‌اند؛ نخستین گریه، شش‌ها را برای همیشه باز می‌کند.",
+ m:["تکمیل چهل هفته","آمادهٔ نخستین نفس","مغز تا ۲ سالگی به رشد ادامه می‌دهد"],
+ nu:[{n:"کربوهیدرات + پروتئین سبک",d:"وعده‌های کوچک پرانرژی",y:"سوخت‌رسانی منظم در زایمان طولانی: خرما، نان و پنیر، سوپ روشن و آب."},
+     {n:"مایعات",d:"لبهای مکرر",y:"جلوگیری از کم‌آبی حین زایمان."}],
+ dt:"زایمان استقامت می‌خواهد؛ سوخت‌رسانی منظم با وعده‌های کوچک و آب‌رسانی مداوم، بهتر از هر آماده‌سازی دیگری است.",
+ t:["پایش نزدیک: NST روزانه در بسیاری از پروتکل‌ها","برنامه‌ریزی القای زایمان در صورت عبور از ۴۱ تا ۴۲ هفته با پایش"],
+ sy:["نشانه‌های زایمان فعال","از دست رفتن پلاگ موکوسی","پارگی کیسهٔ آب"],
+ no:"نشانه‌های قطعی: انقباض منظمِ پیش‌رونده (هر ۵ دقیقه یا نزدیک‌تر به مدت یک ساعت)، پارگی کیسه یا خونریزی. نفس عمیق بکشید — چهل هفته را پیموده‌اید و به‌زودی نخستین گریهٔ دنیا را خواهید شنید."}
+];
+
+/* ================= وضعیت ================= */
+var state={w:1,tab:0,playing:false};
+var viz=null,booted=false;
+
+/* ================= ساخت تایم‌لاین ================= */
+var TRIS=[{cls:'g1',t:'سه‌ماههٔ اول',r:'۱ تا ۱۳',from:1,to:13},
+ {cls:'g2',t:'سه‌ماههٔ دوم',r:'۱۴ تا ۲۷',from:14,to:27},
+ {cls:'g3',t:'سه‌ماههٔ سوم',r:'۲۸ تا ۴۰',from:28,to:40}];
+function buildRail(){
+ var rail=document.getElementById('rail');
+ for(var g=0;g<TRIS.length;g++){
+  var grp=TRIS[g],div=document.createElement('div');div.className='grp '+grp.cls;
+  var h=document.createElement('h3');
+  h.appendChild(document.createTextNode(grp.t));
+  var sm=document.createElement('small');sm.appendChild(document.createTextNode('هفتهٔ '+grp.r));
+  h.appendChild(sm);div.appendChild(h);
+  for(var w=grp.from;w<=grp.to;w++){
+   var b=document.createElement('button');
+   b.className='wk';b.setAttribute('data-w',w);b.setAttribute('type','button');
+   b.title='هفتهٔ '+FA(w)+' — '+W[w-1].ttl;
+   var n=document.createElement('span');n.className='n';n.appendChild(document.createTextNode(FA(w)));
+   var s=document.createElement('span');s.className='sz';s.appendChild(document.createTextNode(W[w-1].sz));
+   b.appendChild(n);b.appendChild(s);div.appendChild(b);
+  }
+  rail.appendChild(div);
+ }
+ rail.addEventListener('click',function(e){
+  var b=e.target;
+  while(b&&b!==rail&&!(b.className&&(' '+b.className+' ').indexOf(' wk ')>=0))b=b.parentNode;
+  if(b&&b!==rail){stopPlay();goTo(parseInt(b.getAttribute('data-w'),10))}
+ });
+}
+
+/* ================= تب‌ها ================= */
+var TABS=[{ic:'baby',t:'جنین'},{ic:'utensils',t:'تغذیهٔ مادر'},{ic:'stethoscope',t:'آزمایش‌ها و پایش'},{ic:'user',t:'بدن مادر'}];
+function buildTabs(){
+ var n=document.getElementById('tabs');
+ for(var i=0;i<TABS.length;i++){
+  var b=document.createElement('button');
+  b.className='tb'+(i===0?' on':'');b.setAttribute('data-i',i);b.setAttribute('type','button');
+  b.innerHTML='<i data-lucide="'+TABS[i].ic+'"></i><span>'+TABS[i].t+'</span>';
+  n.appendChild(b);
+ }
+ n.addEventListener('click',function(e){
+  var b=e.target;
+  while(b&&b!==n&&b.tagName!=='BUTTON')b=b.parentNode;
+  if(!b||b===n)return;
+  state.tab=parseInt(b.getAttribute('data-i'),10);
+  var all=n.getElementsByTagName('button');
+  for(var j=0;j<all.length;j++){if(all[j]===b)all[j].className='tb on';else all[j].className='tb'}
+  renderPane();
+ });
+}
+
+/* ================= محتوای تب‌ها ================= */
+function paneHTML(w){
+ var d=W[w-1],i;
+ if(state.tab===0){
+  return '<div class="pn"><h4>وضعیت جنین</h4><p>'+d.f+'</p>'+
+  '<h4>رویدادهای کلیدی این هفته</h4><ul class="mlist">'+
+  d.m.map(function(x){return '<li><i data-lucide="check"></i><span>'+x+'</span></li>'}).join('')+
+  '</ul></div>';
+ }
+ if(state.tab===1){
+  return '<div class="pn"><h4>ریزمغذی‌های کلیدی</h4><div class="nuts">'+
+  d.nu.map(function(n){return '<div class="ncard"><div class="nh"><i data-lucide="pill"></i><b>'+n.n+'</b><span>'+n.d+'</span></div><p>'+n.y+'</p></div>'}).join('')+
+  '</div><div class="diet"><i data-lucide="salad"></i><p>'+d.dt+'</p></div>'+
+  '<div class="rem"><i data-lucide="droplets"></i><span>۸ تا ۱۰ لیوان آب در روز · کافئین کمتر از ۲۰۰ میلی‌گرم · ماهی کم‌جیوه هفته‌ای ۲ وعده</span></div></div>';
+ }
+ if(state.tab===2){
+  var vis=w<=27?'هر ۴ هفته':(w<=35?'هر ۲ هفته':'هفته‌ای یک‌بار');
+  var tl=d.t.length?
+   '<ul class="tlist">'+d.t.map(function(x){return '<li><i data-lucide="flask-conical"></i><span>'+x+'</span></li>'}).join('')+'</ul>'
+   :'<p class="quiet">آزمایش زمان‌بندی‌شده‌ای برای این هفته وجود ندارد؛ نتایج غربالگری‌های قبلی را در ویزیت بعدی پیگیری کنید و در صورت هر علامت غیرعادی، بدون منتظر ماندن با پزشک تماس بگیرید.</p>';
+  return '<div class="pn"><h4>آزمایش‌ها و اقدامات زمان‌بندی‌شده</h4>'+tl+
+  '<h4>ریتم مراقبت‌های روتین</h4>'+
+  '<div class="visit"><i data-lucide="clipboard-list"></i><p><b>ویزیت‌های بارداری: '+vis+'</b><br>در هر ویزیت: فشار خون، وزن، پروتئین ادرار، رشد رحم و — از حدود هفتهٔ ۱۲ — شنیدن ضربان قلب جنین با داپلر.</p></div></div>';
+ }
+ return '<div class="pn"><h4>احساسات و تغییرات شایع مادر</h4>'+
+ '<div class="symps">'+d.sy.map(function(x){return '<span class="schip"><i data-lucide="activity"></i>'+x+'</span>'}).join('')+'</div>'+
+ '<h4>نکته و هشدار این هفته</h4>'+
+ '<div class="warn"><i data-lucide="alert-triangle"></i><p>'+d.no+'</p></div></div>';
+}
+function renderPane(){
+ document.getElementById('pane').innerHTML=paneHTML(state.w);
+ if(window.lucide)lucide.createIcons();
+}
+function chip(ic,k,v){return '<div class="sch2"><i data-lucide="'+ic+'"></i><div><span>'+k+'</span><b>'+v+'</b></div></div>'}
+
+/* ================= به‌روزرسانی رابط ================= */
+function updateUI(w){
+ var d=W[w-1],tri=w<=13?1:(w<=27?2:3);
+ document.getElementById('hudNum').textContent=FA(w);
+ document.getElementById('hudFruit').textContent=d.sz==='—'?'—':'به بزرگی '+d.sz;
+ document.getElementById('triTag').textContent=['سه‌ماههٔ اول · ۱ تا ۱۳','سه‌ماههٔ دوم · ۱۴ تا ۲۷','سه‌ماههٔ سوم · ۲۸ تا ۴۰'][tri-1];
+ var st=document.getElementById('stage');
+ st.className='stage t'+tri+(st.className.indexOf('nolbls')>=0?' nolbls':'');
+ /* کارت رشد وزنی: اختلاف با هفتهٔ قبل (بر مبنای صدک ۵۰) */
+ var gain='';
+ if(d.wtg&&w>1&&W[w-2]&&W[w-2].wtg){
+  var g=d.wtg-W[w-2].wtg;
+  if(g>0)gain=chip('trending-up','رشد وزنی این هفته','≈ +'+FA(g)+' گرم');
+ }
+ document.getElementById('specs').innerHTML=
+  chip('ruler','طول تقریبی',d.ln)+chip('scale','وزن تقریبی',d.wt)+
+  (d.bpm?chip('heart-pulse','ضربان قلب جنین','≈ '+FA(d.bpm)+' ضربه/دقیقه'):'')+
+  gain+
+  chip('apple','اندازهٔ جنین',d.sz==='—'?'—':'به بزرگی '+d.sz)+
+  chip('shopping-basket','اندازهٔ رحم',d.ut);
+ document.getElementById('pfill').style.width=((w-1)/39*100).toFixed(2)+'%';
+ document.getElementById('pweek').textContent=FA(w);
+ var ons=document.querySelectorAll('.wk.on');
+ for(var i=0;i<ons.length;i++)ons[i].className=ons[i].className.replace(/\s*on/,'');
+ var btn=document.querySelector('.wk[data-w="'+w+'"]');
+ if(btn){
+  if(btn.className.indexOf('on')<0)btn.className+=' on';
+  try{btn.scrollIntoView({block:'nearest',inline:'nearest',behavior:RM?'auto':'smooth'});}
+  catch(e){try{btn.scrollIntoView(false)}catch(e2){}}
+ }
+ document.getElementById('prevB').disabled=w<=1;
+ document.getElementById('nextB').disabled=w>=40;
+ if(viz){viz.setWeek(w,!booted);viz.setBPM(d.bpm||null)}
+ booted=true;
+ renderPane();
+ try{history.replaceState(null,'','#w'+w);localStorage.setItem('w40',String(w))}catch(e){}
+ if(window.lucide)lucide.createIcons();
+}
+function goTo(w){
+ w=Math.max(1,Math.min(40,Math.round(w)));
+ state.w=w;updateUI(w);
+}
+
+/* ================= toast ================= */
+var toastT=0;
+function toast(m){
+ var el=document.getElementById('toast');
+ el.textContent=m;el.className='show';
+ clearTimeout(toastT);toastT=setTimeout(function(){el.className=''},2600);
+}
+
+/* ================= پخش سفر ================= */
+var timer=null;
+function setPlayUI(){
+ var ic=document.querySelector('#playBtn .ic');
+ if(ic)ic.innerHTML='<i data-lucide="'+(state.playing?'pause':'play')+'"></i>';
+ document.getElementById('playLbl').textContent=state.playing?'توقف':'پخش سفر';
+ if(window.lucide)lucide.createIcons();
+}
+function stopPlay(){
+ if(!state.playing)return;
+ state.playing=false;clearInterval(timer);
+ if(viz)viz.setAuto(false);setPlayUI();
+}
+function startPlay(){
+ if(state.w>=40)goTo(1);
+ state.playing=true;setPlayUI();
+ if(viz)viz.setAuto(true);
+ timer=setInterval(function(){
+  if(state.w>=40){stopPlay();toast('سفر چهل‌هفته‌ای به پایان رسید');return}
+  goTo(state.w+1);
+ },2600);
+}
+
+/* ================= کپی پیوند (با fallback قدیمی) ================= */
+function copyText(txt,ok){
+ function legacy(){
+  var ta=document.createElement('textarea');ta.value=txt;
+  ta.style.position='fixed';ta.style.top='-100px';ta.style.opacity='0';
+  document.body.appendChild(ta);ta.focus();ta.select();
+  var done=false;try{done=document.execCommand('copy')}catch(e){}
+  document.body.removeChild(ta);
+  if(done)ok();else toast('کپی نشد — نشانی نوار آدرس را دستی کپی کنید');
+ }
+ if(navigator.clipboard&&navigator.clipboard.writeText){
+  navigator.clipboard.writeText(txt).then(ok,legacy);
+ }else legacy();
+}
+
+/* ================= تشخیص WebGL ================= */
+function hasWebGL(){
+ try{
+  var c=document.createElement('canvas');
+  return !!(window.WebGLRenderingContext&&c.getContext&&((c.getContext('webgl')||c.getContext('experimental-webgl'))));
+ }catch(e){return false}
+}
+
+/* ============================================================
+   کنترل مداری سبک (جایگزین OrbitControls — بدون وابستگی)
+   ============================================================ */
+function OrbitLite(el,cam){
+ var self=this;
+ this.target=new THREE.Vector3(0,0.1,0);
+ var th0=0.35,ph0=1.42,r0=18.6;
+ var th=th0,ph=ph0,r=r0,tth=th0,tph=ph0,tr=r0;
+ var MINR=7.5,MAXR=30,drag=false,px=0,py=0,pinch=0;
+ this.auto=false;this.autoSpeed=0.9;
+ function down(x,y){drag=true;px=x;py=y;el.style.cursor='grabbing'}
+ function move(x,y){
+  if(!drag)return;
+  tth-=(x-px)*0.0055;tph-=(y-py)*0.0055;
+  if(tph<0.25)tph=0.25;if(tph>2.75)tph=2.75;
+  px=x;py=y;
+ }
+ function up(){drag=false;el.style.cursor='grab'}
+ el.addEventListener('mousedown',function(e){e.preventDefault();down(e.clientX,e.clientY)});
+ window.addEventListener('mousemove',function(e){move(e.clientX,e.clientY)});
+ window.addEventListener('mouseup',up);
+ el.addEventListener('mouseleave',up);
+ el.addEventListener('touchstart',function(e){
+  if(e.touches.length===1)down(e.touches[0].clientX,e.touches[0].clientY);
+  else if(e.touches.length===2)pinch=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+ },false);
+ el.addEventListener('touchmove',function(e){
+  e.preventDefault();
+  if(e.touches.length===1)move(e.touches[0].clientX,e.touches[0].clientY);
+  else if(e.touches.length===2){
+   var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+   if(pinch>0&&d>0){tr*=pinch/d;if(tr<MINR)tr=MINR;if(tr>MAXR)tr=MAXR}
+   pinch=d;
+  }
+ },false);
+ el.addEventListener('touchend',function(e){
+  if(e.touches.length===0)up();
+  else if(e.touches.length===1){px=e.touches[0].clientX;py=e.touches[0].clientY}
+ },false);
+ el.addEventListener('wheel',function(e){
+  e.preventDefault();
+  tr*=1+e.deltaY*0.0011;
+  if(tr<MINR)tr=MINR;if(tr>MAXR)tr=MAXR;
+ },false);
+ this.reset=function(){tth=th0;tph=ph0;tr=r0};
+ this.update=function(dt){
+  if(this.auto&&!drag)tth+=this.autoSpeed*dt;
+  var k=dt*7;if(k>1)k=1;
+  th+=(tth-th)*k;ph+=(tph-ph)*k;r+=(tr-r)*k;
+  var sp=Math.sin(ph);
+  cam.position.set(self.target.x+r*sp*Math.sin(th),self.target.y+r*Math.cos(ph),self.target.z+r*sp*Math.cos(th));
+  cam.lookAt(self.target);
+ };
+}
+
+/* ============================================================
+   صحنهٔ سه‌بعدی — رحم و جنین پارامتریک
+   ============================================================ */
+function init3D(){
+ if(!window.THREE)return null;
+ if(!THREE.CapsuleGeometry||!THREE.MathUtils)return null;
+ var inner=document.getElementById('stageInner');
+ var renderer;
+ try{renderer=new THREE.WebGLRenderer({antialias:true})}
+ catch(e){return null}
+ renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+ var cv=renderer.domElement;
+ cv.style.position='absolute';cv.style.top='0';cv.style.left='0';
+ cv.style.width='100%';cv.style.height='100%';cv.style.display='block';
+ cv.style.touchAction='none';cv.style.cursor='grab';
+ inner.appendChild(cv);
+
+ var scene=new THREE.Scene();
+ scene.background=new THREE.Color(0xF8F1E0);
+ scene.fog=new THREE.Fog(0xF8F1E0,26,54);
+ var camera=new THREE.PerspectiveCamera(36,1,0.1,120);
+
+ scene.add(new THREE.HemisphereLight(0xfff6e6,0xcbb694,0.95));
+ var keyL=new THREE.DirectionalLight(0xffe9cf,1.1);keyL.position.set(5,8,6);scene.add(keyL);
+ var fillL=new THREE.DirectionalLight(0xd7e0e8,0.35);fillL.position.set(-6,2,-4);scene.add(fillL);
+ var wombL=new THREE.PointLight(0xffc9a0,0.5,26);wombL.position.set(0,1.2,7);scene.add(wombL);
+
+ function M(g,m){return new THREE.Mesh(g,m)}
+ function fresnel(base,rim,o0,o1){
+  return new THREE.ShaderMaterial({
+   uniforms:{uBase:{value:new THREE.Color(base)},uRim:{value:new THREE.Color(rim)},uO0:{value:o0},uO1:{value:o1},uP:{value:2.4}},
+   vertexShader:'varying float vF;uniform float uP;void main(){vec4 mv=modelViewMatrix*vec4(position,1.0);vec3 n=normalize(normalMatrix*normal);vec3 v=normalize(-mv.xyz);vF=pow(1.0-clamp(abs(dot(n,v)),0.0,1.0),uP);gl_Position=projectionMatrix*mv;}',
+   fragmentShader:'uniform vec3 uBase;uniform vec3 uRim;uniform float uO0;uniform float uO1;varying float vF;void main(){gl_FragColor=vec4(mix(uBase,uRim,vF),mix(uO0,uO1,vF));}',
+   transparent:true,depthWrite:false});
+ }
+
+ var world=new THREE.Group();scene.add(world);
+
+ /* --- رحم --- */
+ var utG=new THREE.Group();utG.position.y=0.4;world.add(utG);
+ var sg=new THREE.SphereGeometry(1,96,64);
+ var shellIn=M(sg,fresnel('#F2DECF','#D8A184',0.03,0.16));shellIn.scale.set(3.9,4.6,3.55);shellIn.renderOrder=1;utG.add(shellIn);
+ var shellMid=M(sg,fresnel('#F6E8D6','#C99168',0.05,0.4));shellMid.scale.set(4.2,4.95,3.8);shellMid.renderOrder=2;utG.add(shellMid);
+ var shellOut=M(sg,fresnel('#EADCC5','#A9764F',0.02,0.2));shellOut.scale.set(4.5,5.28,4.06);shellOut.renderOrder=3;utG.add(shellOut);
+ var cvx=M(new THREE.CylinderGeometry(0.5,0.34,1.4,24,1,true),
+  new THREE.MeshStandardMaterial({color:0xD9A886,roughness:0.7,transparent:true,opacity:0.85,side:THREE.DoubleSide}));
+ cvx.position.y=-5.25;utG.add(cvx);
+ var endo=M(sg,new THREE.MeshStandardMaterial({color:0xB5472E,roughness:0.9,transparent:true,opacity:0.3,side:THREE.BackSide,depthWrite:false}));
+ endo.scale.set(3.85,4.55,3.5);utG.add(endo);
+ var vesMat=new THREE.MeshStandardMaterial({color:0xA34A2B,roughness:0.55,transparent:true,opacity:0.4});
+ for(var vi=0;vi<6;vi++){
+  var lon=(vi*60+20)*Math.PI/180,pts=[];
+  for(var vj=0;vj<=10;vj++){
+   var lat=1.15-(vj/10)*1.9;
+   pts.push(new THREE.Vector3(4.37*Math.cos(lat)*Math.cos(lon),5.15*Math.sin(lat),3.95*Math.cos(lat)*Math.sin(lon)));
+  }
+  utG.add(M(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),32,0.05,6),vesMat));
+ }
+
+ /* --- جفت --- */
+ var plaPos=new THREE.Vector3(-1.43,2.48,2.29);
+ var placG=new THREE.Group();placG.position.copy(plaPos);placG.lookAt(0,0.4,0);
+ var plaMat=new THREE.MeshStandardMaterial({color:0x7E3A22,roughness:0.85,transparent:true});
+ var disc=M(new THREE.SphereGeometry(1.5,28,20),plaMat);disc.scale.set(1,1,0.42);placG.add(disc);
+ for(var bi=0;bi<7;bi++){
+  var ba=bi/7*Math.PI*2,br=0.4+(bi%3)*0.34;
+  var lob=M(new THREE.SphereGeometry(0.28+(bi%2)*0.16,16,12),plaMat);
+  lob.position.set(Math.cos(ba)*br,Math.sin(ba)*br,(bi%3-1)*0.09);lob.scale.set(1,1,0.5);placG.add(lob);
+ }
+ world.add(placG);
+
+ /* --- کیسهٔ حاملگی و کیسهٔ زرده --- */
+ var gsc=M(new THREE.SphereGeometry(1,48,32),fresnel('#F5E6D8','#C98F72',0.04,0.3));
+ gsc.position.set(0,0.5,0);gsc.renderOrder=2;world.add(gsc);
+ var yolk=M(new THREE.SphereGeometry(0.15,20,16),new THREE.MeshStandardMaterial({color:0xC9664A,roughness:0.6,transparent:true}));
+ yolk.position.set(0.55,0.15,0.4);world.add(yolk);
+
+ /* --- مراحل پیش‌جنینی --- */
+ var ovumG=new THREE.Group();ovumG.position.set(2.7,5.5,1.2);world.add(ovumG);
+ var om=new THREE.MeshStandardMaterial({color:0xE79A86,roughness:0.45});
+ ovumG.add(M(new THREE.SphereGeometry(0.17,28,20),om));
+ ovumG.add(M(new THREE.SphereGeometry(0.06,16,12),new THREE.MeshStandardMaterial({color:0x8F3C20})));
+ for(var oi=0;oi<8;oi++){
+  var oa=oi/8*Math.PI*2;
+  var oc=M(new THREE.SphereGeometry(0.035,10,8),om);
+  oc.position.set(Math.cos(oa)*0.26,Math.sin(oa*0.7)*0.1,Math.sin(oa)*0.26);ovumG.add(oc);
+ }
+ var morG=new THREE.Group();morG.position.set(1.75,4.7,1.05);world.add(morG);
+ var mm=new THREE.MeshStandardMaterial({color:0xD98E73,roughness:0.55});
+ for(var mi=0;mi<15;mi++){
+  var mu=Math.random()*2-1,maa=Math.random()*Math.PI*2,mss=Math.sqrt(1-mu*mu);
+  var ms=M(new THREE.SphereGeometry(0.05,12,10),mm);
+  ms.position.set(mss*Math.cos(maa)*0.12,mu*0.12,mss*Math.sin(maa)*0.12);morG.add(ms);
+ }
+ var blaG=new THREE.Group();blaG.position.set(-1.05,3.25,1.35);world.add(blaG);
+ var blaSh=M(new THREE.SphereGeometry(0.2,32,24),fresnel('#F5E6D8','#C98F72',0.06,0.42));
+ blaSh.renderOrder=2;blaG.add(blaSh);
+ blaG.add(M(new THREE.SphereGeometry(0.08,16,12),new THREE.MeshStandardMaterial({color:0xC0603F,roughness:0.6})));
+
+ /* --- بند ناف --- */
+ var cordEnd=new THREE.Vector3(plaPos.x*0.92,0.4+(plaPos.y-0.4)*0.92,plaPos.z*0.92);
+ var cord=M(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(0,0,0),new THREE.Vector3(0,1,0)]),8,0.1,7,false),
+  new THREE.MeshStandardMaterial({color:0xE9BC98,roughness:0.55}));
+ world.add(cord);
+
+ /* --- جنین پارامتریک --- */
+ var fetus,torsoG,torsoMesh,headPivot,headC,armL,armR,legL,legR;
+ var skinMat,faceMat,noseMat,earMat,lipMat,eyesMat,hairMat;
+ var eyeL,eyeR,hair,heartM,heartMat,heartLight,bellyAnchor;
+ var EMB=new THREE.Color(0xE38D82),SKINC=new THREE.Color(0xF2C4A4);
+
+ fetus=new THREE.Group();fetus.position.set(0,0.45,0);fetus.rotation.x=0.12;world.add(fetus);
+ skinMat=new THREE.MeshStandardMaterial({color:0xF2C4A4,roughness:0.5,transparent:true,opacity:0.9});
+ faceMat=skinMat.clone();noseMat=skinMat.clone();earMat=skinMat.clone();
+ noseMat.color.set(0xE8AE8C);
+ lipMat=new THREE.MeshStandardMaterial({color:0xC97862,roughness:0.5,transparent:true});
+ eyesMat=new THREE.MeshStandardMaterial({color:0x3A2A20,roughness:0.35,transparent:true});
+ hairMat=new THREE.MeshStandardMaterial({color:0x4A3323,roughness:0.8,transparent:true});
+
+ torsoG=new THREE.Group();fetus.add(torsoG);
+ var prof=[[0.02,-2.2],[0.5,-1.85],[0.66,-1.25],[0.75,-0.55],[0.72,-0.1],[0.62,0.3],[0.45,0.6],[0.02,0.8]];
+ var profV=[];for(var pi=0;pi<prof.length;pi++)profV.push(new THREE.Vector2(prof[pi][0],prof[pi][1]));
+ torsoMesh=M(new THREE.LatheGeometry(profV,32),skinMat);
+ torsoMesh.scale.set(1,1,1.12);torsoG.add(torsoMesh);
+ var neck=M(new THREE.CylinderGeometry(0.28,0.32,0.5,16),skinMat);neck.position.y=0.8;torsoG.add(neck);
+
+ headPivot=new THREE.Group();headPivot.position.y=0.85;torsoG.add(headPivot);
+ headC=new THREE.Group();headC.position.y=0.95;headPivot.add(headC);
+ var head=M(new THREE.SphereGeometry(1.02,40,32),skinMat);head.scale.set(0.94,1.05,0.98);headC.add(head);
+ var nose=M(new THREE.SphereGeometry(0.13,16,12),noseMat);nose.position.set(0,-0.08,1);headC.add(nose);
+ var lips=M(new THREE.SphereGeometry(0.08,16,12),lipMat);lips.position.set(0,-0.45,0.85);lips.scale.set(1.5,0.55,0.7);headC.add(lips);
+ var chL=M(new THREE.SphereGeometry(0.24,20,16),faceMat);chL.position.set(-0.5,-0.22,0.72);headC.add(chL);
+ var chR=chL.clone();chR.position.x=0.5;headC.add(chR);
+ var eL=M(new THREE.SphereGeometry(0.18,16,12),earMat);eL.position.set(-0.95,0.02,0.05);eL.scale.set(0.45,0.85,0.6);headC.add(eL);
+ var eR=eL.clone();eR.position.x=0.95;headC.add(eR);
+ eyeL=M(new THREE.SphereGeometry(0.09,14,10),eyesMat);eyeL.position.set(-0.34,0.15,0.88);headC.add(eyeL);
+ eyeR=eyeL.clone();eyeR.position.x=0.34;headC.add(eyeR);
+ hair=M(new THREE.SphereGeometry(1.06,32,16,0,Math.PI*2,0,1.35),hairMat);
+ hair.rotation.x=-0.12;headC.add(hair);
+
+ heartMat=new THREE.MeshBasicMaterial({color:0xE4572E,transparent:true,opacity:0.9});
+ heartM=M(new THREE.SphereGeometry(0.17,14,12),heartMat);heartM.position.set(0.15,0.35,0.6);torsoG.add(heartM);
+ heartLight=new THREE.PointLight(0xFF5A36,0,3,2);heartLight.position.set(0.15,0.35,1.1);torsoG.add(heartLight);
+
+ function limb(r1,l1,r2,l2,hand){
+  var root=new THREE.Group();
+  root.add(M(new THREE.SphereGeometry(r1*1.05,16,12),skinMat));
+  var up=M(new THREE.CapsuleGeometry(r1,l1,6,12),skinMat);up.position.y=-(l1/2+r1);root.add(up);
+  var g2=new THREE.Group();g2.position.y=-(l1+2*r1);root.add(g2);
+  g2.add(M(new THREE.SphereGeometry(r2*1.08,16,12),skinMat));
+  var lo=M(new THREE.CapsuleGeometry(r2,l2,6,12),skinMat);lo.position.y=-(l2/2+r2);g2.add(lo);
+  var end;
+  if(hand){end=M(new THREE.SphereGeometry(0.2,16,12),skinMat);end.position.y=-(l2+2*r2)+0.08}
+  else{end=M(new THREE.CapsuleGeometry(r2*0.8,l2*0.45,6,10),skinMat);end.rotation.x=Math.PI/2;end.position.set(0,-(l2+2*r2)+0.05,l2*0.35)}
+  g2.add(end);
+  return {root:root,g2:g2};
+ }
+ armL=limb(0.2,0.5,0.16,0.45,true);armL.root.position.set(0.58,0.35,0.12);torsoG.add(armL.root);
+ armR=limb(0.2,0.5,0.16,0.45,true);armR.root.position.set(-0.58,0.35,0.12);torsoG.add(armR.root);
+ legL=limb(0.3,0.85,0.24,0.7,false);legL.root.position.set(0.3,-1.9,0.12);fetus.add(legL.root);
+ legR=limb(0.3,0.85,0.24,0.7,false);legR.root.position.set(-0.3,-1.9,0.12);fetus.add(legR.root);
+ bellyAnchor=new THREE.Object3D();bellyAnchor.position.set(0,-0.5,0.82);torsoG.add(bellyAnchor);
+
+ function setJoints(c){
+  function mx(a,b){return b+(a-b)*c}
+  headPivot.rotation.x=mx(-1.2,-0.32);
+  armL.root.rotation.set(mx(-1.55,-1.05),0,mx(0.6,0.38));
+  armR.root.rotation.set(mx(-1.55,-1.05),0,-mx(0.6,0.38));
+  armL.g2.rotation.x=mx(-1.75,-1.3);armR.g2.rotation.x=mx(-1.75,-1.3);
+  legL.root.rotation.set(mx(-2.25,-1.72),0,mx(0.24,0.14));
+  legR.root.rotation.set(mx(-2.25,-1.72),0,-mx(0.24,0.14));
+  legL.g2.rotation.x=mx(2.4,2.05);legR.g2.rotation.x=mx(2.4,2.05);
+  torsoG.rotation.x=0.15+0.4*c;
+ }
+
+ var cordDirty=true,lastBelly=new THREE.Vector3(),bpv=new THREE.Vector3();
+ function applyPose(p){
+  fetus.visible=p.fill>0.03;
+  fetus.scale.setScalar(p.fill);
+  torsoMesh.scale.set(1,p.body,1.12);
+  headC.scale.setScalar(p.head);
+  armL.root.scale.setScalar(p.limb);armR.root.scale.setScalar(p.limb);
+  legL.root.scale.setScalar(p.limb);legR.root.scale.setScalar(p.limb);
+  setJoints(p.curl);
+  faceMat.opacity=p.face;noseMat.opacity=p.face;earMat.opacity=p.face*0.9;lipMat.opacity=p.face*0.95;
+  eyesMat.opacity=p.eyes;eyeL.visible=p.eyes>0.03;eyeR.visible=p.eyes>0.03;
+  hairMat.opacity=0.92*p.hair;hair.visible=p.hair>0.04;
+  skinMat.color.copy(EMB).lerp(SKINC,p.skin);skinMat.opacity=0.86+0.14*p.skin;
+  faceMat.color.copy(skinMat.color);earMat.color.copy(skinMat.color);
+  noseMat.color.copy(skinMat.color).multiplyScalar(0.93);
+  heartM.visible=p.heartO>0.05;heartMat.opacity=p.heartO;
+  placG.visible=p.plaO>0.04;placG.scale.setScalar(0.7+0.3*p.plaO);plaMat.opacity=p.plaO;
+  gsc.visible=p.sacO>0.03;gsc.scale.setScalar(Math.max(0.01,p.sacR));
+  gsc.material.uniforms.uO0.value=0.04*p.sacO;gsc.material.uniforms.uO1.value=0.3*p.sacO;
+  yolk.visible=p.yolkO>0.04;yolk.material.opacity=0.95*p.yolkO;
+  endo.visible=p.endoO>0.03;endo.material.opacity=0.3*p.endoO;
+  ovumG.visible=p.ovumO>0.06;ovumG.scale.setScalar(Math.max(0.001,p.ovumO));
+  morG.visible=p.morO>0.06;morG.scale.setScalar(Math.max(0.001,p.morO));
+  blaG.visible=p.blaO>0.06;blaG.scale.setScalar(Math.max(0.001,p.blaO));
+  cord.visible=p.fill>0.06&&p.plaO>0.4;
+  cordDirty=true;
+ }
+ function rebuildCord(){
+  bellyAnchor.getWorldPosition(bpv);
+  var dir=bpv.clone().sub(fetus.position);dir.y=0;
+  if(dir.lengthSq()<1e-6)dir.set(0,0,1);
+  dir.normalize();
+  var p1=bpv.clone().addScaledVector(dir,0.8).add(new THREE.Vector3(0,0.4,0));
+  var p2=bpv.clone().lerp(cordEnd,0.5).add(new THREE.Vector3(0.5,0.2,-0.3));
+  var curve=new THREE.CatmullRomCurve3([bpv.clone(),p1,p2,cordEnd.clone()]);
+  cord.geometry.dispose();
+  cord.geometry=new THREE.TubeGeometry(curve,42,Math.max(0.05,cur.cordR),7,false);
+  if(Lcord)Lcord.p.copy(curve.getPoint(0.55));
+  lastBelly.copy(bpv);cordDirty=false;
+ }
+
+ /* --- حباب‌های مایع آمنیوتیک --- */
+ var bubs=[],bubMat=new THREE.MeshBasicMaterial({color:0xFFFBEC,transparent:true,opacity:0.16});
+ for(var bI=0;bI<14;bI++){
+  var bb=M(new THREE.SphereGeometry(0.03+Math.random()*0.045,10,8),bubMat);
+  bb.position.set((Math.random()*2-1)*3.1,0.4+(Math.random()*2-1)*3.6,(Math.random()*2-1)*2.8);
+  bb.userData={s:0.1+Math.random()*0.25};
+  world.add(bb);bubs.push(bb);
+ }
+ /* --- سایهٔ تماسی --- */
+ var sh1=M(new THREE.CircleGeometry(5.3,40),new THREE.MeshBasicMaterial({color:0xE6D7BB,transparent:true,opacity:0.32,depthWrite:false}));
+ sh1.rotation.x=-Math.PI/2;sh1.position.y=-6.55;scene.add(sh1);
+ var sh2=M(new THREE.CircleGeometry(4,40),new THREE.MeshBasicMaterial({color:0xE6D7BB,transparent:true,opacity:0.3,depthWrite:false}));
+ sh2.rotation.x=-Math.PI/2;sh2.position.y=-6.5;scene.add(sh2);
+
+ /* --- برچسب‌های سه‌بعدی (پروژهٔ دستی) --- */
+ var labelWrap=document.createElement('div');labelWrap.className='l3dwrap';inner.appendChild(labelWrap);
+ var LBL=[],labelsOn=true;
+ function addLabel(txt){
+  var el=document.createElement('div');el.className='l3d';el.appendChild(document.createTextNode(txt));
+  labelWrap.appendChild(el);
+  var L={el:el,p:new THREE.Vector3(),show:true};LBL.push(L);return L;
+ }
+ var Lr=addLabel('رحم');Lr.p.set(4.9,0.4,0.5);
+ var Lcx=addLabel('گردن رحم');Lcx.p.set(0,-5.75,0.3);
+ var Laf=addLabel('مایع آمنیوتیک');Laf.p.set(-3.3,1.9,2.0);
+ var Lpl=addLabel('جفت');
+ var plDir=plaPos.clone().sub(new THREE.Vector3(0,0.4,0)).normalize();
+ Lpl.p.copy(plaPos).addScaledVector(plDir,1.35);Lpl.p.y+=0.35;
+ var Lcord=addLabel('بند ناف');Lcord.p.set(0,1.5,1);
+ var Lpre=addLabel('تخمک');
+ function updateLabelVis(w){
+  Laf.show=w>=4;Lpl.show=w>=5;Lcord.show=w>=6;Lr.show=true;Lcx.show=true;
+  if(w>=2&&w<=4){
+   Lpre.show=true;
+   Lpre.el.textContent=(w===2)?'تخمک':(w===3?'مورولا':'بلاستوسیست');
+   var pp=[[0,0,0],[3.1,5.8,1.35],[2.0,5.0,1.15],[-1.35,3.55,1.5]][w-1];
+   Lpre.p.set(pp[0],pp[1],pp[2]);
+  }else Lpre.show=false;
+ }
+
+ var orbit=new OrbitLite(cv,camera);
+ var cur=sampleAll(1),tw=null,phase=0,bpmNow=null;
+ applyPose(cur);
+
+ /* --- حلقهٔ رندر --- */
+ var clock=new THREE.Clock(),cw=-1,ch=-1,pv=new THREE.Vector3();
+ function tick(){
+  requestAnimationFrame(tick);
+  var dt=Math.min(clock.getDelta(),0.05),t=clock.elapsedTime;
+  var nw=inner.clientWidth,nh=inner.clientHeight;
+  if(nw>0&&nh>0&&(nw!==cw||nh!==ch)){
+   cw=nw;ch=nh;
+   renderer.setSize(nw,nh,false);
+   camera.aspect=nw/nh;camera.updateProjectionMatrix();
+  }
+  orbit.update(dt);
+  if(tw){
+   var k=(performance.now()-tw.t0)/tw.dur;if(k>1)k=1;
+   var e=k<0.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+   for(var key in tw.to)cur[key]=tw.from[key]+(tw.to[key]-tw.from[key])*e;
+   applyPose(cur);
+   if(k>=1)tw=null;
+  }
+  var space=RM?0:Math.max(0.2,Math.min(1,1.3-cur.fill));
+  fetus.rotation.y=0.55+Math.sin(t*0.45)*0.07*space;
+  fetus.rotation.z=THREE.MathUtils.degToRad(cur.tilt)+Math.sin(t*0.3)*0.05*space*(1-cur.tilt/180);
+  fetus.position.y=0.45+Math.sin(t*0.7)*0.06*space-cur.engage*1.15;
+  if(bpmNow&&cur.heartO>0.05){
+   phase+=dt*bpmNow/60;
+   var f=phase%1;
+   var pu=Math.exp(-Math.pow((f-0.12)/0.06,2))+0.55*Math.exp(-Math.pow((f-0.32)/0.07,2));
+   heartM.scale.setScalar(1+0.5*pu);heartLight.intensity=1.2*pu*cur.heartO;
+  }else heartLight.intensity=0;
+  if(!RM)utG.scale.setScalar(1+Math.sin(t*0.8)*0.004);
+  if(!RM){
+   for(var b2=0;b2<bubs.length;b2++){
+    var bu=bubs[b2];bu.position.y+=bu.userData.s*dt;
+    if(bu.position.y>4.4)bu.position.set((Math.random()*2-1)*3.1,-3.4,(Math.random()*2-1)*2.8);
+   }
+  }
+  bellyAnchor.getWorldPosition(bpv);
+  if(cordDirty||bpv.distanceTo(lastBelly)>0.008)rebuildCord();
+  if(labelsOn&&cw>0){
+   for(var li=0;li<LBL.length;li++){
+    var L=LBL[li];
+    if(!L.show){L.el.style.display='none';continue}
+    pv.copy(L.p).project(camera);
+    if(pv.z>1||pv.z<-1||pv.x>1.3||pv.x<-1.3||pv.y>1.3||pv.y<-1.3){L.el.style.display='none';continue}
+    L.el.style.display='block';
+    var lx=(pv.x*0.5+0.5)*cw,ly=(-pv.y*0.5+0.5)*ch;
+    L.el.style.transform='translate(-50%,-50%) translate('+lx.toFixed(1)+'px,'+ly.toFixed(1)+'px)';
+   }
+  }
+  renderer.render(scene,camera);
+ }
+ tick();
+
+ return {
+  setWeek:function(w,instant){
+   var to=sampleAll(w);
+   if(instant||RM){cur=cloneP(to);applyPose(cur);tw=null}
+   else tw={from:cloneP(cur),to:to,t0:performance.now(),dur:1150};
+   updateLabelVis(w);
+  },
+  setBPM:function(b){bpmNow=b},
+  setAuto:function(on){orbit.auto=!!on&&!RM},
+  reset:function(){orbit.reset()},
+  setLabels:function(on){labelsOn=!!on;labelWrap.style.display=on?'block':'none'}
+ };
+}
+
+/* ============================================================
+   نسخهٔ دوبعدی — fallback برای مرورگرهای بدون WebGL / بدون CDN
+   ============================================================ */
+function initFallback(){
+ var inner=document.getElementById('stageInner');
+ var hintTx=document.getElementById('hintTx');
+ if(hintTx)hintTx.textContent='نمای دوبعدی — مرورگر شما از سه‌بعدی پشتیبانی نمی‌کند';
+ var S=[];
+ S.push('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 700" preserveAspectRatio="xMidYMid meet" style="position:absolute;top:0;left:0;width:100%;height:100%;display:block">');
+ S.push('<path id="fbBelly" d="M 82 660 C 86 400 156 96 300 86 C 444 96 514 400 518 660" fill="none" stroke="#3E2E22" stroke-width="2.5" opacity="0.15"/>');
+ S.push('<path d="M 300 42 C 398 46 462 132 464 278 C 465 396 402 498 322 552 C 310 560 302 568 302 588 L 298 588 C 298 568 290 560 278 552 C 198 498 135 396 136 278 C 138 132 202 46 300 42 Z" fill="#FFFDF4"/>');
+ S.push('<path d="M 300 42 C 398 46 462 132 464 278 C 465 396 402 498 322 552 C 310 560 302 568 302 588 L 298 588 C 298 568 290 560 278 552 C 198 498 135 396 136 278 C 138 132 202 46 300 42 Z" fill="none" stroke="#E5C9AD" stroke-width="22" stroke-linejoin="round"/>');
+ S.push('<g fill="none" stroke="#B5502F" stroke-width="2.5" opacity="0.13"><path d="M 172 170 C 150 220 126 270 128 330 C 132 380 152 430 180 470"/><path d="M 428 170 C 450 220 474 270 472 330 C 468 380 448 430 420 470"/></g>');
+ S.push('<path d="M 297 586 C 293 612 291 632 292 650 L 308 650 C 309 632 307 612 303 586 Z" fill="#E5C9AD" opacity="0.95"/>');
+ S.push('<g fill="#3E2E22">'+
+  '<circle class="bub" style="animation-duration:7.5s" cx="210" cy="150" r="3" opacity=".07"/>'+
+  '<circle class="bub" style="animation-duration:9.5s" cx="243" cy="330" r="2.6" opacity=".06"/>'+
+  '<circle class="bub" style="animation-duration:8s" cx="368" cy="420" r="3.4" opacity=".07"/>'+
+  '<circle class="bub" style="animation-duration:11s" cx="325" cy="535" r="2.4" opacity=".06"/>'+
+  '<circle class="bub" style="animation-duration:8.7s" cx="205" cy="300" r="2.8" opacity=".06"/>'+
+  '<circle class="bub" style="animation-duration:10s" cx="388" cy="185" r="2.4" opacity=".07"/></g>');
+ S.push('<g id="fbPla" opacity="0">'+
+  '<path d="M 312 48 C 396 60 446 140 450 240 C 424 196 382 120 306 92 C 303 76 305 60 312 48 Z" fill="#C5714F"/>'+
+  '<circle cx="352" cy="80" r="5" fill="#9C4F30" opacity=".45"/><circle cx="378" cy="98" r="4.4" fill="#9C4F30" opacity=".45"/>'+
+  '<circle cx="400" cy="122" r="5.2" fill="#9C4F30" opacity=".45"/><circle cx="418" cy="152" r="4.2" fill="#9C4F30" opacity=".45"/>'+
+  '<circle cx="428" cy="190" r="5" fill="#9C4F30" opacity=".45"/></g>');
+ S.push('<g id="fbOvum" opacity="0">'+
+  '<circle cx="295" cy="112" r="9.5" fill="#E5A17E"/><circle cx="295" cy="112" r="3.6" fill="#8F3C20"/>'+
+  '<circle cx="284" cy="102" r="2.6" fill="#E5A17E" opacity="0.7"/><circle cx="306" cy="104" r="2.4" fill="#E5A17E" opacity="0.7"/></g>');
+ S.push('<g id="fbMor" opacity="0">'+
+  '<circle cx="315" cy="138" r="6.6" fill="#E5A17E"/><circle cx="329" cy="141" r="6.4" fill="#E5A17E"/>'+
+  '<circle cx="317" cy="152" r="6.2" fill="#D98F69"/><circle cx="331" cy="153" r="5.8" fill="#E5A17E"/></g>');
+ S.push('<g id="fbBla" opacity="0">'+
+  '<circle cx="350" cy="82" r="15" fill="#FFF3E6" stroke="#D98A5F" stroke-width="3"/>'+
+  '<circle cx="344" cy="76" r="5.4" fill="#C5714F"/><circle cx="337" cy="94" r="2.2" fill="#C5714F"/>'+
+  '<circle cx="350" cy="97" r="2.2" fill="#C5714F"/><circle cx="362" cy="90" r="2.2" fill="#C5714F"/></g>');
+ S.push('<g id="fbFetus" opacity="0">'+
+  '<path id="fbLegBt" fill="none" stroke="#E2A87E" stroke-linecap="round" d="M 208 250 C 182 268 152 276 130 268"/>'+
+  '<path id="fbLegBs" fill="none" stroke="#E2A87E" stroke-linecap="round" d="M 130 268 C 144 290 168 302 194 304"/>'+
+  '<ellipse id="fbFootB" fill="#E2A87E" transform="rotate(-18 200 304)"/>'+
+  '<path id="fbBody" fill="none" stroke="#F2C3A3" stroke-linecap="round" d="M 163 114 C 212 120 240 198 192 252"/>'+
+  '<path id="fbLegFt" fill="none" stroke="#F2C3A3" stroke-linecap="round" d="M 196 244 C 168 262 136 268 112 258"/>'+
+  '<path id="fbLegFs" fill="none" stroke="#F2C3A3" stroke-linecap="round" d="M 112 258 C 126 282 152 294 180 296"/>'+
+  '<ellipse id="fbFootF" fill="#F2C3A3" transform="rotate(-18 186 296)"/>'+
+  '<path id="fbArmB" fill="none" stroke="#E2A87E" stroke-linecap="round" d="M 190 128 C 174 140 160 156 157 172 C 155 158 147 149 139 142"/>'+
+  '<circle id="fbHead" fill="#F2C3A3"/><ellipse id="fbEar" fill="#E2A87E" opacity="0.55"/>'+
+  '<g id="fbFace" opacity="0" stroke="#6B4B35" stroke-width="2.6" fill="none" stroke-linecap="round">'+
+  '<path id="fbEye"/><path id="fbBrow"/><path id="fbNose"/><path id="fbLips"/>'+
+  '<circle id="fbCheek" fill="#E8A08E" stroke="none" opacity="0.38"/></g>'+
+  '<path id="fbHair" fill="#4E3A28" opacity="0"/>'+
+  '<path id="fbArmF" fill="none" stroke="#F2C3A3" stroke-linecap="round" d="M 178 122 C 160 132 144 148 140 166 C 138 150 129 140 120 133"/>'+
+  '<circle id="fbHand" fill="#F2C3A3"/><circle id="fbHeart" cx="163" cy="150" r="5" fill="#B5502F" opacity="0"/></g>');
+ S.push('<path id="fbCord" fill="none" stroke="#E9BFA5" stroke-linecap="round" opacity="0"/>');
+ S.push('<g fill="#3E2E22" opacity="0.62" font-size="14.5" font-weight="600" text-anchor="middle" font-family="Vazirmatn,Tahoma">'+
+  '<text x="505" y="145">جفت</text><line x1="462" y1="152" x2="490" y2="148" stroke="#3E2E22" stroke-width="1" opacity="0.5"/><circle cx="460" cy="153" r="2" fill="#3E2E22"/>'+
+  '<text x="103" y="112">بند ناف</text><line x1="126" y1="118" x2="268" y2="205" stroke="#3E2E22" stroke-width="1" opacity="0.5"/><circle cx="271" cy="207" r="2" fill="#3E2E22"/>'+
+  '<text x="108" y="452">مایع آمنیوتیک</text><line x1="152" y1="447" x2="196" y2="446" stroke="#3E2E22" stroke-width="1" opacity="0.5"/><circle cx="201" cy="446" r="2" fill="#3E2E22"/>'+
+  '<text x="90" y="262">رحم</text>'+
+  '<text x="402" y="636">گردن رحم</text><line x1="370" y1="628" x2="316" y2="622" stroke="#3E2E22" stroke-width="1" opacity="0.5"/><circle cx="312" cy="621" r="2" fill="#3E2E22"/></g>');
+ S.push('</svg>');
+ inner.innerHTML=S.join('');
+ function q(id){return inner.querySelector('#'+id)}
+ var fbBelly=q('fbBelly'),fbPla=q('fbPla'),fbOvum=q('fbOvum'),fbMor=q('fbMor'),fbBla=q('fbBla');
+ var fbFetus=q('fbFetus'),fbHead=q('fbHead'),fbEar=q('fbEar'),fbFace=q('fbFace');
+ var fbEye=q('fbEye'),fbBrow=q('fbBrow'),fbNose=q('fbNose'),fbLips=q('fbLips'),fbCheek=q('fbCheek'),fbHair=q('fbHair');
+ var fbBody=q('fbBody'),fbLegBt=q('fbLegBt'),fbLegBs=q('fbLegBs'),fbLegFt=q('fbLegFt'),fbLegFs=q('fbLegFs');
+ var fbFootB=q('fbFootB'),fbFootF=q('fbFootF'),fbArmB=q('fbArmB'),fbArmF=q('fbArmF'),fbHand=q('fbHand');
+ var fbHeart=q('fbHeart'),fbCord=q('fbCord');
+ var RAD=Math.PI/180;
+
+ function redraw(p){
+  var s=0.06+0.76*p.fill;
+  var op=Math.max(0,Math.min(1,(p.fill-0.03)*12));
+  fbFetus.setAttribute('opacity',op.toFixed(3));
+  fbFetus.setAttribute('transform','translate(300 '+p.cy.toFixed(1)+') rotate('+p.tilt.toFixed(1)+') scale('+s.toFixed(4)+') translate(-150 -170)');
+  fbBelly.setAttribute('transform','translate(300 655) scale('+p.belly.toFixed(4)+') translate(-300 -655)');
+  var r=46*p.head,hy=88-10*(p.head-1);
+  fbHead.setAttribute('cx','146');fbHead.setAttribute('cy',hy.toFixed(1));fbHead.setAttribute('r',r.toFixed(1));
+  fbEar.setAttribute('cx',(146+0.34*r).toFixed(1));fbEar.setAttribute('cy',hy.toFixed(1));
+  fbEar.setAttribute('rx',(0.2*r).toFixed(1));fbEar.setAttribute('ry',(0.27*r).toFixed(1));
+  var e=146-r;
+  fbEye.setAttribute('d','M '+(e+9)+' '+(hy+5)+' Q '+(e+16)+' '+(hy+11)+' '+(e+23)+' '+(hy+7));
+  fbBrow.setAttribute('d','M '+(e+10)+' '+(hy-6)+' Q '+(e+17)+' '+(hy-10)+' '+(e+24)+' '+(hy-7));
+  fbNose.setAttribute('d','M '+(e+1)+' '+(hy+15)+' Q '+(e-4)+' '+(hy+20)+' '+(e+2)+' '+(hy+24));
+  fbLips.setAttribute('d','M '+(e+9)+' '+(hy+29)+' Q '+(e+13)+' '+(hy+33)+' '+(e+18)+' '+(hy+30));
+  fbCheek.setAttribute('cx',(e+28));fbCheek.setAttribute('cy',(hy+18));
+  fbFace.setAttribute('opacity',p.face.toFixed(3));
+  function PP(deg,rr){return (146+rr*Math.cos(deg*RAD)).toFixed(1)+' '+(hy+rr*Math.sin(deg*RAD)).toFixed(1)}
+  var r2=r*0.55;
+  fbHair.setAttribute('d','M '+PP(-170,r)+' A '+r.toFixed(1)+' '+r.toFixed(1)+' 0 0 1 '+PP(-10,r)+' L '+PP(-10,r2)+' A '+r2.toFixed(1)+' '+r2.toFixed(1)+' 0 0 0 '+PP(-170,r2)+' Z');
+  fbHair.setAttribute('opacity',(0.92*p.hair).toFixed(3));
+  fbBody.setAttribute('stroke-width',(20+42*p.limb*p.body).toFixed(1));
+  fbLegBt.setAttribute('stroke-width',(10+18*p.limb).toFixed(1));
+  fbLegBs.setAttribute('stroke-width',(7.5+15*p.limb).toFixed(1));
+  fbLegFt.setAttribute('stroke-width',(9+17*p.limb).toFixed(1));
+  fbLegFs.setAttribute('stroke-width',(7+14*p.limb).toFixed(1));
+  fbArmB.setAttribute('stroke-width',(5.5+11*p.limb).toFixed(1));
+  fbArmF.setAttribute('stroke-width',(6+11.5*p.limb).toFixed(1));
+  fbFootF.setAttribute('cx','186');fbFootF.setAttribute('cy','296');
+  fbFootF.setAttribute('rx',(4+9.5*p.limb).toFixed(1));fbFootF.setAttribute('ry',(3+6.5*p.limb).toFixed(1));
+  fbFootB.setAttribute('cx','200');fbFootB.setAttribute('cy','304');
+  fbFootB.setAttribute('rx',(4+8.5*p.limb).toFixed(1));fbFootB.setAttribute('ry',(3+6*p.limb).toFixed(1));
+  fbHand.setAttribute('cx','118');fbHand.setAttribute('cy','131');fbHand.setAttribute('r',(3+5.5*p.limb).toFixed(1));
+  fbPla.setAttribute('opacity',p.plaO.toFixed(3));
+  fbOvum.setAttribute('opacity',p.ovumO.toFixed(3));
+  fbMor.setAttribute('opacity',p.morO.toFixed(3));
+  fbBla.setAttribute('opacity',p.blaO.toFixed(3));
+  fbHeart.setAttribute('opacity',p.heartO.toFixed(3));
+  var rad=p.tilt*RAD,cc=Math.cos(rad),sn=Math.sin(rad);
+  var bx=300+(2*s*cc-28*s*sn),by=p.cy+(2*s*sn+28*s*cc);
+  fbCord.setAttribute('d','M 418 168 C 384 256 '+(bx+56).toFixed(1)+' '+(by-48).toFixed(1)+' '+bx.toFixed(1)+' '+by.toFixed(1));
+  fbCord.setAttribute('stroke-width',(3+6.5*s).toFixed(1));
+  fbCord.setAttribute('opacity',(p.fill>0.06&&p.plaO>0.4)?'1':'0');
+ }
+
+ var curF=sampleAll(1),twF=null,bpmF=null,phaseF=0,lastT=performance.now();
+ redraw(curF);
+ function loopF(){
+  requestAnimationFrame(loopF);
+  var now=performance.now(),dt=Math.min(0.05,(now-lastT)/1000);lastT=now;
+  if(twF){
+   var k=(now-twF.t0)/twF.dur;if(k>1)k=1;
+   var e=k<0.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+   var p={};
+   for(var key in twF.to)p[key]=twF.from[key]+(twF.to[key]-twF.from[key])*e;
+   curF=p;redraw(p);
+   if(k>=1)twF=null;
+  }
+  if(bpmF&&curF.heartO>0.05){
+   phaseF+=dt*bpmF/60;
+   var f=phaseF%1;
+   var pu=Math.exp(-Math.pow((f-0.12)/0.06,2))+0.55*Math.exp(-Math.pow((f-0.32)/0.07,2));
+   fbHeart.setAttribute('r',(4+3.5*pu).toFixed(2));
+  }else fbHeart.setAttribute('r','4');
+ }
+ loopF();
+ return {
+  setWeek:function(w,instant){
+   var to=sampleAll(w);
+   if(instant||RM){curF=cloneP(to);redraw(curF);twF=null}
+   else twF={from:cloneP(curF),to:to,t0:performance.now(),dur:900};
+  },
+  setBPM:function(b){bpmF=b},
+  setAuto:function(){},
+  reset:function(){},
+  setLabels:function(){}
+ };
+}
+
+/* ================= راه‌اندازی ================= */
+function initViz(){
+ if(window.THREE&&hasWebGL()){
+  try{viz=init3D()}catch(e){viz=null;if(window.console)console.warn(e)}
+ }
+ if(!viz)viz=initFallback();
+}
+buildRail();buildTabs();
+initViz();
+var w0=1,mh=location.hash.match(/w(\d{1,2})/);
+if(mh)w0=Math.min(40,Math.max(1,parseInt(mh[1],10)));
+else{
+ try{var v=parseInt(localStorage.getItem('w40'),10);if(v>=1&&v<=40)w0=v}catch(e){}
+}
+state.w=w0;updateUI(w0);
+
+document.getElementById('prevB').addEventListener('click',function(){stopPlay();goTo(state.w-1)});
+document.getElementById('nextB').addEventListener('click',function(){stopPlay();goTo(state.w+1)});
+document.getElementById('playBtn').addEventListener('click',function(){if(state.playing)stopPlay();else startPlay()});
+document.getElementById('rvBtn').addEventListener('click',function(){if(viz)viz.reset()});
+document.getElementById('lblBtn').addEventListener('click',function(e){
+ var st=document.getElementById('stage');
+ var off=st.className.indexOf('nolbls')>=0;
+ if(off)st.className=st.className.replace(/\s*nolbls/,'');
+ else st.className+=' nolbls';
+ e.currentTarget.className=off?'btnic act':'btnic';
+ if(viz)viz.setLabels(off);
+});
+document.getElementById('shareBtn').addEventListener('click',function(){
+ copyText(location.href,function(){toast('پیوند این هفته کپی شد')});
+});
+window.addEventListener('keydown',function(e){
+ if(e.target&&(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA'))return;
+ if(e.key==='ArrowLeft'){e.preventDefault();stopPlay();goTo(state.w+1)}
+ if(e.key==='ArrowRight'){e.preventDefault();stopPlay();goTo(state.w-1)}
+});
+window.addEventListener('hashchange',function(){
+ var mm=location.hash.match(/w(\d{1,2})/);
+ if(mm&&parseInt(mm[1],10)!==state.w){stopPlay();goTo(parseInt(mm[1],10))}
+});
+if(window.lucide)lucide.createIcons();
+})();
+</script>
+</body>
+</html>

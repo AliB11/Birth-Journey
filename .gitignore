@@ -1,0 +1,36 @@
+# وابستگی‌ها و ابزارها
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# خروجی‌های ساخت/پوشش
+dist/
+build/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# محیط‌های مجازی و پیکربندی محلی
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# فایل‌های موقت ساخت (اسکریپت‌های تولید تصویر و بسته‌های npm)
+.build-tmp/
+.build-tmp2/
+.tmp/
+
+# سیستم‌عامل و ویرایشگرها
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# گزارش‌ها
+logs/
+*.log

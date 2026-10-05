@@ -1,0 +1,49 @@
+name: اصلاح محتوا / دادهٔ علمی
+description: عدد، بازهٔ زمانی یا متن آموزشی نادرست یا outdated است
+title: "[محتوا]: "
+labels: ["content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        دقت علمی برای این پروژه اولویت است. لطفاً پیشنهاد اصلاح را همراه با **منبع معتبر منتشرشده** (راهنمای ACOG/WHO، جداول هادلاک/فنتون یا متن مرجع دانشگاهی) ارائه کنید.
+        توجه: این مخزن مشاورهٔ پزشکی ارائه نمی‌کند و تغییرات صرفاً بر مبنای منابع منتشرشده اعمال می‌شوند.
+  - type: input
+    id: week
+    attributes:
+      label: هفتهٔ مربوطه
+      placeholder: مثلاً ۱۶
+    validations:
+      required: true
+  - type: dropdown
+    id: tab
+    attributes:
+      label: برگهٔ مربوطه
+      options:
+        - جنین
+        - تغذیهٔ مادر
+        - آزمایش‌ها و پایش
+        - بدن مادر
+        - سایر
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: متن/دادهٔ فعلی
+      description: عین عبارت یا عددی که در صفحه دیده‌اید.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested
+    attributes:
+      label: پیشنهاد اصلاح
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: منبع
+      description: پیوند یا ارجاع کامل منبع معتبر (ترجیحاً با سال انتشار).
+    validations:
+      required: true

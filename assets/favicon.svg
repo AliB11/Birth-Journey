@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>سفر چهل‌هفته‌ای</title>
+  <rect width="64" height="64" rx="14" fill="#F4ECDB"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#3E2E22" stroke-width="3"/>
+  <path d="M21.3 44 C 36 48, 45.3 37.3, 41.3 24" fill="none" stroke="#B5502F" stroke-width="4.4" stroke-linecap="round"/>
+  <circle cx="41.3" cy="22" r="7.5" fill="#B5502F"/>
+</svg>

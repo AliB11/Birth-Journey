@@ -1,0 +1,63 @@
+name: گزارش خطا
+description: چیزی خراب است، خطا می‌دهد یا درست نمایش داده نمی‌شود
+title: "[خطا]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        سپاس که گزارش می‌دهید! 🙏 پیش از ارسال، لطفاً [ایشوهای باز](../issues) را جست‌وجو کنید تا گزارش تکراری ثبت نشود.
+  - type: textarea
+    id: expected
+    attributes:
+      label: چه انتظاری داشتید و چه اتفاقی افتاد؟
+      description: رفتار مورد انتظار و رفتار مشاهده‌شده را روشن بنویسید.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: گام‌های بازتولید
+      placeholder: |
+        ۱. بازکردن صفحه و رفتن به هفتهٔ …
+        ۲. کلیک روی …
+        ۳. مشاهدهٔ …
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: نشانی صفحه (با هش هفته)
+      placeholder: https://alib11.github.io/Birth-Journey/#w20
+  - type: dropdown
+    id: browser
+    attributes:
+      label: مرورگر
+      options:
+        - Firefox
+        - Chrome / Edge
+        - Safari
+        - سایر
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: دستگاه
+      options:
+        - موبایل
+        - تبلت
+        - دسکتاپ
+  - type: checkboxes
+    id: mode
+    attributes:
+      label: کدام حالت نمایش؟
+      options:
+        - label: نمای سه‌بعدی
+        - label: نمای دوبعدی (fallback)
+        - label: نمی‌دانم
+  - type: textarea
+    id: extra
+    attributes:
+      label: یادداشت اضافی، پیام کنسول یا تصویر
+      description: اگر پیام خطایی در کنسول مرورگر دیده‌اید، آن را بچسبانید.

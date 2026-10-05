@@ -1,0 +1,17 @@
+# نرمال‌سازی پایان خطوط
+* text=auto eol=lf
+
+# فایل‌های دودویی
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+
+# کد ثالث میزبانی‌شده: از آمار زبان و diff خارج باشد
+vendor/** linguist-vendored
+vendor/** -diff
+*.min.js linguist-vendored
+package-lock.json linguist-generated

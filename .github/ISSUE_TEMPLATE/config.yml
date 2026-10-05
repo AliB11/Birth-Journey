@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: گزارش امنیتی (خصوصی)
+    url: https://github.com/AliB11/Birth-Journey/security/advisories
+    about: آسیب‌پذیری‌ها را فقط به‌صورت خصوصی گزارش کنید؛ جزئیات در SECURITY.md

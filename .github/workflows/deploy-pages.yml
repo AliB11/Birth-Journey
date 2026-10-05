@@ -1,0 +1,94 @@
+name: Deploy to GitHub Pages
+
+# این ورکفلو دو کار می‌کند:
+# ۱) روی هر push به main یک «گیت کیفیت» (lint + آزمون) اجرا می‌کند.
+# ۲) اگر منبع Pages مخزن روی «GitHub Actions» باشد، سایت را stage و دیپلوی می‌کند.
+#    تا زمانی که منبع روی حالت legacy (شاخهٔ main) است، دیپلوی توسط خود گیت‌هاب
+#    از ریشهٔ شاخه انجام می‌شود و این ورکفلو فقط گزارشن می‌دهد؛ به‌محض تغییر منبع
+#    در Settings ← Pages ← Source، بدون هیچ تغییری در کد فعال می‌شود.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    name: Quality gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dev dependencies
+        run: npm ci
+
+      - name: Lint + smoke tests
+        run: npm run check
+
+  publish:
+    name: Stage site (workflow mode only)
+    needs: gate
+    runs-on: ubuntu-latest
+    outputs:
+      mode: ${{ steps.mode.outputs.mode }}
+    steps:
+      - name: Detect Pages build type
+        id: mode
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          bt="$(curl -fsS -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+                "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages" | jq -r '.build_type // "unknown"')" || bt="unknown"
+          echo "Pages build_type: $bt"
+          echo "mode=$bt" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        if: steps.mode.outputs.mode == 'workflow'
+        uses: actions/checkout@v4
+
+      - name: Stage static site
+        if: steps.mode.outputs.mode == 'workflow'
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r assets vendor _site/
+          cp LICENSE LICENSE-CONTENT README.md CHANGELOG.md _site/
+
+      - name: Configure Pages
+        if: steps.mode.outputs.mode == 'workflow'
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        if: steps.mode.outputs.mode == 'workflow'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy
+    if: needs.publish.outputs.mode == 'workflow'
+    needs: publish
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

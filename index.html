@@ -3,17 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="اطلس تعاملی و سه‌بعدی رشد جنین در ۴۰ هفتهٔ بارداری: اندازه و وزن هفته‌به‌هفته، ضربان قلب، رویدادهای کلیدی هر هفته، تغذیهٔ مادر، آزمایش‌ها و پایش، و تغییرات بدن مادر — آموزشی، رایگان و بدون نیاز به نصب.">
+<meta name="author" content="AliB11">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F4ECDB">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="سفر چهل‌هفته‌ای">
+<meta property="og:title" content="سفر چهل‌هفته‌ای — اطلس سه‌بعدی رشد جنین">
+<meta property="og:description" content="سفر هفته‌به‌هفتهٔ جنین از لقاح تا نخستین گریه؛ با نمای سه‌بعدی تعاملی، داده‌های رشد بر پایهٔ صدک ۵۰ جداول مرجع و راهنمای تغذیه و مراقبت مادر.">
+<meta property="og:url" content="https://alib11.github.io/Birth-Journey/">
+<meta property="og:image" content="https://alib11.github.io/Birth-Journey/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fa_IR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="سفر چهل‌هفته‌ای — اطلس سه‌بعدی رشد جنین">
+<meta name="twitter:description" content="سفر هفته‌به‌هفتهٔ جنین از لقاح تا نخستین گریه؛ با نمای سه‌بعدی تعاملی و راهنمای تغذیه و مراقبت مادر.">
+<meta name="twitter:image" content="https://alib11.github.io/Birth-Journey/assets/og-cover.png">
 <title>سفر چهل‌هفته‌ای — اطلس سه‌بعدی رشد جنین</title>
-<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link rel="canonical" href="https://alib11.github.io/Birth-Journey/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="512x512" href="assets/icon-512.png">
 <style>
+/* فونت وزیرمتن — نسخهٔ متغیر، میزبانی محلی (پروانهٔ SIL OFL 1.1) */
+@font-face{font-family:'Vazirmatn';src:url('vendor/vazirmatn/Vazirmatn-var.woff2') format('woff2 supports variations'),url('vendor/vazirmatn/Vazirmatn-var.woff2') format('woff2-variations');font-weight:100 900;font-style:normal;font-display:swap}
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#F4ECDB;--card:#FCF8EE;--ink:#3E2E22;--mut:#8B7A63;--line:#E1D2B7;
- --acc:#B5502F;--accD:#8F3C20;--t1:#B5502F;--t2:#697A4E;--t3:#8A5730}
+:root{--bg:#F4ECDB;--card:#FCF8EE;--ink:#3E2E22;--mut:#6E5B44;--line:#E1D2B7;
+ --acc:#B5502F;--accD:#8F3C20;--accT:#8F3C20;--t1:#9C4526;--t2:#55663F;--t3:#7A4B28}
 ::selection{background:var(--acc);color:#FFF6E8}
 html{scroll-behavior:smooth}
 body{font-family:'Vazirmatn',Tahoma,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
 .wrap{max-width:1400px;margin:0 auto;padding:0 24px}
 button{font:inherit}
+/* دسترس‌پذیری */
+.sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;border:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.skip{position:fixed;top:-60px;right:16px;z-index:100;background:var(--ink);color:#FFF6E8;font-size:13px;font-weight:800;padding:10px 20px;border-radius:0 0 12px 12px;text-decoration:none;transition:top .2s}
+.skip:focus{top:0}
+:where(a,button,[tabindex]):focus-visible{outline:3px solid var(--accD);outline-offset:2px;border-radius:6px}
+/* وقتی آیکون‌ها در دسترس نیستند، جای خالی نگذار */
+html.no-icons [data-lucide]{display:none}
+html.no-icons :where(.btn,.tb,.hint,.schip,.ncard .nh,.diet,.rem,.visit,.warn,.mlist li,.tlist li){gap:0}
 
 /* هدر */
 header.site{display:flex;align-items:center;gap:16px;padding:20px 0 14px;border-bottom:2px solid var(--ink);flex-wrap:wrap}
@@ -32,7 +62,7 @@ header.site{display:flex;align-items:center;gap:16px;padding:20px 0 14px;border-
 /* نوار پیشرفت */
 .progress{display:flex;align-items:center;gap:16px;padding:14px 0}
 .plabel{font-size:12.5px;font-weight:700;color:var(--mut);white-space:nowrap}
-.plabel b{color:var(--acc);font-size:14px}
+.plabel b{color:var(--accT);font-size:14px}
 .pbar{flex:1;height:4px;background:var(--line);border-radius:99px;position:relative}
 .pseg{position:absolute;top:-3px;width:2px;height:10px;background:var(--ink);opacity:.3;border-radius:2px}
 #pseg1{right:30.8%}#pseg2{right:66.7%}
@@ -104,7 +134,7 @@ main{display:grid;grid-template-columns:265px minmax(0,1fr);gap:30px;padding:20p
 .tb{display:flex;gap:8px;align-items:center;padding:10px 14px 12px;background:none;border:0;font-size:13.5px;font-weight:700;color:var(--mut);cursor:pointer;border-bottom:2.5px solid transparent;margin-bottom:-1.5px;transition:color .15s,border-color .15s}
 .tb svg{width:16px;height:16px}
 .tb:hover{color:var(--ink)}
-.tb.on{color:var(--acc);border-bottom-color:var(--acc)}
+.tb.on{color:var(--accT);border-bottom-color:var(--acc)}
 #pane{min-height:300px}
 .pn{animation:pin .4s ease}
 @keyframes pin{from{opacity:0;transform:translateY(8px)}}
@@ -120,7 +150,7 @@ main{display:grid;grid-template-columns:265px minmax(0,1fr);gap:30px;padding:20p
 .ncard{border-right:3px solid var(--acc);background:#F5EAD6;padding:14px 17px;border-radius:14px 4px 4px 14px}
 .ncard .nh{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;margin-bottom:7px}
 .ncard svg{width:15px;height:15px;color:var(--acc);align-self:center}
-.ncard b{font-size:17px;font-weight:900;color:var(--acc)}
+.ncard b{font-size:17px;font-weight:900;color:var(--accT)}
 .ncard span{font-size:12.5px;font-weight:800;color:var(--ink);background:rgba(255,252,244,.75);border:1px solid #E4D3B4;padding:1px 10px;border-radius:99px}
 .ncard p{font-size:14px;line-height:2;color:#6E5B44}
 .diet{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 18px;margin-top:16px}
@@ -139,6 +169,7 @@ main{display:grid;grid-template-columns:265px minmax(0,1fr);gap:30px;padding:20p
 .warn{display:flex;gap:12px;background:#F6E3D2;border:1px solid #E4B795;border-radius:16px;padding:15px 18px}
 .warn svg{width:19px;height:19px;color:#B5502F;flex:none;margin-top:7px}
 .warn p{font-size:15px;line-height:2.1;color:#74401F}
+.warn.mainmsg{margin:18px 0}
 
 /* حباب‌های نسخهٔ دوبعدی */
 .bub{animation:fbb 8s ease-in-out infinite alternate}
@@ -167,6 +198,7 @@ footer svg{width:16px;height:16px;flex:none;margin-top:5px;color:var(--acc)}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">پرش به محتوای اصلی</a>
 <div class="wrap">
  <header class="site">
   <div class="brand">
@@ -183,7 +215,7 @@ footer svg{width:16px;height:16px;flex:none;margin-top:5px;color:var(--acc)}
   </div>
  </header>
 
- <div class="progress">
+ <div class="progress" id="pbar" role="progressbar" aria-label="پیشرفت سفر بارداری" aria-valuemin="1" aria-valuemax="40" aria-valuenow="1">
   <div class="plabel">هفتهٔ <b id="pweek">۱</b> از ۴۰</div>
   <div class="pbar">
    <span class="pseg" id="pseg1"></span><span class="pseg" id="pseg2"></span>
@@ -191,25 +223,28 @@ footer svg{width:16px;height:16px;flex:none;margin-top:5px;color:var(--acc)}
   </div>
  </div>
 
- <main>
-  <aside id="rail" aria-label="تایم‌لاین هفته‌ها"></aside>
-  <section>
+ <main id="main">
+  <noscript>
+   <div class="warn mainmsg"><i data-lucide="alert-triangle"></i><p>این اطلس برای نمایش تعاملی و سه‌بعدی به جاوااسکریپت نیاز دارد. لطفاً جاوااسکریپت مرورگر خود را فعال کنید؛ محتوای متنی ۴۰ هفته بدون جاوااسکریپت در دسترس نیست.</p></div>
+  </noscript>
+  <nav id="rail" aria-label="تایم‌لاین هفته‌های بارداری"></nav>
+  <section aria-label="نمای هفته و اطلاعات آن">
    <div class="cols">
     <div class="vizcol">
      <div class="stage t1" id="stage">
-      <div id="stageInner"></div>
+      <div id="stageInner" aria-hidden="true"></div>
       <div class="hud hud-tl">
        <div class="hud-num"><span>هفتهٔ</span><b id="hudNum">۱</b></div>
        <div class="hud-fruit" id="hudFruit">—</div>
       </div>
       <div class="hud hud-tr">
        <span class="chip" id="triTag">سه‌ماههٔ اول</span>
-       <button class="btnic act" id="lblBtn" title="برچسب‌های آناتومیک" type="button"><i data-lucide="tags"></i></button>
-       <button class="btnic" id="rvBtn" title="بازنشانی نما" type="button"><i data-lucide="rotate-ccw"></i></button>
+       <button class="btnic act" id="lblBtn" title="برچسب‌های آناتومیک" aria-label="نمایش برچسب‌های آناتومیک" aria-pressed="true" type="button"><i data-lucide="tags"></i></button>
+       <button class="btnic" id="rvBtn" title="بازنشانی نما" aria-label="بازنشانی نما" type="button"><i data-lucide="rotate-ccw"></i></button>
       </div>
       <div class="hud hud-bl">
-       <button id="prevB" class="rbtn" title="هفتهٔ قبل" type="button"><i data-lucide="chevron-right"></i></button>
-       <button id="nextB" class="rbtn" title="هفتهٔ بعد" type="button"><i data-lucide="chevron-left"></i></button>
+       <button id="prevB" class="rbtn" title="هفتهٔ قبل" aria-label="هفتهٔ قبل" type="button"><i data-lucide="chevron-right"></i></button>
+       <button id="nextB" class="rbtn" title="هفتهٔ بعد" aria-label="هفتهٔ بعد" type="button"><i data-lucide="chevron-left"></i></button>
       </div>
       <div class="hud hud-br">
        <span class="hint"><i data-lucide="rotate-3d"></i><span id="hintTx">بکشید و بچرخانید · اسکرول = بزرگ‌نمایی</span></span>
@@ -218,8 +253,8 @@ footer svg{width:16px;height:16px;flex:none;margin-top:5px;color:var(--acc)}
      <div class="specsrow" id="specs"></div>
     </div>
     <div class="info">
-     <nav class="tabs" id="tabs"></nav>
-     <div id="pane"></div>
+     <div class="tabs" id="tabs" role="tablist" aria-label="بخش‌های اطلاعات هر هفته"></div>
+     <div id="pane" role="tabpanel" tabindex="0" aria-labelledby="tab-0"></div>
     </div>
    </div>
   </section>
@@ -230,17 +265,40 @@ footer svg{width:16px;height:16px;flex:none;margin-top:5px;color:var(--acc)}
   <div>این برنامه صرفاً آموزشی است و جایگزین مشاورهٔ پزشکی نیست. طول و وزن جنین بر مبنای صدک ۵۰ جداول مرجع رشد (هادلاک/فنتون) و سایر داده‌ها بر پایهٔ متون مرجع رشد جنین و دستورالعمل‌های عمومی مراقبت بارداری (ACOG/WHO) گردآوری شده و همگی تقریبی و متغیرند. دربارهٔ سلامت خود و جنین‌تان همواره با پزشک یا ماما مشورت کنید.</div>
  </footer>
 </div>
-<div id="toast"></div>
+<p id="a11yStatus" class="sr" role="status" aria-live="polite"></p>
+<div id="toast" role="status" aria-live="polite"></div>
 
-<!-- بارگذاری کتابخانه‌ها با اسکریپت کلاسیک (بدون ماژول) + CDN جایگزین -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
-<script>if(!window.THREE){document.write('<script src="https://unpkg.com/three@0.147.0/build/three.min.js"><\/script>');}</script>
-<script src="https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js"></script>
-<script>if(!window.lucide){document.write('<script src="https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js"><\/script>');}</script>
+<!-- بارگذاری کتابخانه‌ها: نخست مسیر محلی (vendor/) و در صورت نبود، CDN جایگزین با SRI.
+     بدون تزریق هم‌زمان سند — زنجیرهٔ Promise و برچسب‌گذاری کلاس خطا روی <html> -->
+<script>
+(function(){
+'use strict';
+var LIBS=[
+ {g:'THREE',fail:'no-three',src:[['vendor/three/three.min.js',''],
+  ['https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js','sha384-vV17nr/rMaJqmeZkFUzXLpHdQ+ME5QHKdydaqqN+3Ga39RJlNrTatJxHwGV4ml2C'],
+  ['https://unpkg.com/three@0.147.0/build/three.min.js','sha384-vV17nr/rMaJqmeZkFUzXLpHdQ+ME5QHKdydaqqN+3Ga39RJlNrTatJxHwGV4ml2C']]},
+ {g:'lucide',fail:'no-icons',src:[['vendor/lucide/lucide.min.js',''],
+  ['https://cdn.jsdelivr.net/npm/lucide@0.294.0/dist/umd/lucide.min.js','sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U'],
+  ['https://unpkg.com/lucide@0.294.0/dist/umd/lucide.min.js','sha384-43WP8IQ+5H0ncT+LNM4dZnu+hPINYmeOuNMhTvHfszzXdFjBEji77gkq7TyjQl/U']]}
+];
+function one(u,h){return new Promise(function(res,rej){var s=document.createElement('script');s.src=u;
+ if(h){s.integrity=h;s.crossOrigin='anonymous'}
+ s.async=false;s.onload=function(){res()};s.onerror=function(){if(s.parentNode)s.parentNode.removeChild(s);rej(new Error('load-failed:'+u))};
+ (document.head||document.documentElement).appendChild(s)})}
+function chain(list,i){return one(list[i][0],list[i][1]).catch(function(){if(i+1<list.length)return chain(list,i+1);throw new Error('all-sources-failed')})}
+var ready=Promise.resolve();
+LIBS.forEach(function(lib){ready=ready.then(function(){
+ if(window[lib.g])return null;
+ return chain(lib.src,0).catch(function(){document.documentElement.classList.add(lib.fail);return null});
+})});
+window.BJ_READY=ready;
+})();
+</script>
 
 <script>
 (function(){
 'use strict';
+function boot(){
 
 /* ================= ابزارها ================= */
 var FA=function(s){return String(s).replace(/[0-9]/g,function(n){return '۰۱۲۳۴۵۶۷۸۹'[+n]})};
@@ -695,6 +753,7 @@ function buildRail(){
    var b=document.createElement('button');
    b.className='wk';b.setAttribute('data-w',w);b.setAttribute('type','button');
    b.title='هفتهٔ '+FA(w)+' — '+W[w-1].ttl;
+   b.setAttribute('aria-label','هفتهٔ '+FA(w)+' — '+W[w-1].ttl);
    var n=document.createElement('span');n.className='n';n.appendChild(document.createTextNode(FA(w)));
    var s=document.createElement('span');s.className='sz';s.appendChild(document.createTextNode(W[w-1].sz));
    b.appendChild(n);b.appendChild(s);div.appendChild(b);
@@ -702,9 +761,9 @@ function buildRail(){
   rail.appendChild(div);
  }
  rail.addEventListener('click',function(e){
-  var b=e.target;
-  while(b&&b!==rail&&!(b.className&&(' '+b.className+' ').indexOf(' wk ')>=0))b=b.parentNode;
-  if(b&&b!==rail){stopPlay();goTo(parseInt(b.getAttribute('data-w'),10))}
+  var b=(e.target&&e.target.closest)?e.target.closest('#rail .wk'):null;
+  if(!b)return;
+  stopPlay();goTo(parseInt(b.getAttribute('data-w'),10));
  });
 }
 
@@ -715,17 +774,40 @@ function buildTabs(){
  for(var i=0;i<TABS.length;i++){
   var b=document.createElement('button');
   b.className='tb'+(i===0?' on':'');b.setAttribute('data-i',i);b.setAttribute('type','button');
+  b.id='tab-'+i;b.setAttribute('role','tab');b.setAttribute('aria-controls','pane');
+  b.setAttribute('aria-selected',i===0?'true':'false');b.tabIndex=i===0?0:-1;
   b.innerHTML='<i data-lucide="'+TABS[i].ic+'"></i><span>'+TABS[i].t+'</span>';
   n.appendChild(b);
  }
- n.addEventListener('click',function(e){
-  var b=e.target;
-  while(b&&b!==n&&b.tagName!=='BUTTON')b=b.parentNode;
-  if(!b||b===n)return;
-  state.tab=parseInt(b.getAttribute('data-i'),10);
+ function selectTab(idx,focus){
+  idx=(idx+TABS.length)%TABS.length;
+  state.tab=idx;
   var all=n.getElementsByTagName('button');
-  for(var j=0;j<all.length;j++){if(all[j]===b)all[j].className='tb on';else all[j].className='tb'}
+  for(var j=0;j<all.length;j++){
+   var on=j===idx;
+   all[j].className=on?'tb on':'tb';
+   all[j].setAttribute('aria-selected',on?'true':'false');
+   all[j].tabIndex=on?0:-1;
+  }
+  var pane=document.getElementById('pane');
+  if(pane)pane.setAttribute('aria-labelledby','tab-'+idx);
+  if(focus&&all[idx])all[idx].focus();
   renderPane();
+ }
+ n.addEventListener('click',function(e){
+  var b=(e.target&&e.target.closest)?e.target.closest('#tabs .tb'):null;
+  if(!b)return;
+  selectTab(parseInt(b.getAttribute('data-i'),10),false);
+ });
+ /* ناوبری صفحه‌کلید الگوی ARIA؛ در چیدمان راست‌به‌چپ، فلش راست = تب قبلی */
+ n.addEventListener('keydown',function(e){
+  var k=e.key;
+  if(k!=='ArrowLeft'&&k!=='ArrowRight'&&k!=='Home'&&k!=='End')return;
+  e.preventDefault();
+  var i=state.tab;
+  if(k==='ArrowLeft')i=i+1;else if(k==='ArrowRight')i=i-1;
+  else if(k==='Home')i=0;else i=TABS.length-1;
+  selectTab(i,true);
  });
 }
 
@@ -767,16 +849,18 @@ function chip(ic,k,v){return '<div class="sch2"><i data-lucide="'+ic+'"></i><div
 /* ================= به‌روزرسانی رابط ================= */
 function updateUI(w){
  var d=W[w-1],tri=w<=13?1:(w<=27?2:3);
+ var triName=['سه‌ماههٔ اول','سه‌ماههٔ دوم','سه‌ماههٔ سوم'][tri-1];
+ var triRange=tri===1?'۱ تا ۱۳':(tri===2?'۱۴ تا ۲۷':'۲۸ تا ۴۰');
  document.getElementById('hudNum').textContent=FA(w);
  document.getElementById('hudFruit').textContent=d.sz==='—'?'—':'به بزرگی '+d.sz;
- document.getElementById('triTag').textContent=['سه‌ماههٔ اول · ۱ تا ۱۳','سه‌ماههٔ دوم · ۱۴ تا ۲۷','سه‌ماههٔ سوم · ۲۸ تا ۴۰'][tri-1];
+ document.getElementById('triTag').textContent=triName+' · '+triRange;
  var st=document.getElementById('stage');
- st.className='stage t'+tri+(st.className.indexOf('nolbls')>=0?' nolbls':'');
+ st.className='stage t'+tri+(st.classList.contains('nolbls')?' nolbls':'');
  /* کارت رشد وزنی: اختلاف با هفتهٔ قبل (بر مبنای صدک ۵۰) */
  var gain='';
  if(d.wtg&&w>1&&W[w-2]&&W[w-2].wtg){
   var g=d.wtg-W[w-2].wtg;
-  if(g>0)gain=chip('trending-up','رشد وزنی این هفته','≈ +'+FA(g)+' گرم');
+  if(g>0)gain=chip('trending-up','رشد وزنی این هفته','≈ +'+FA(Math.round(g))+' گرم');
  }
  document.getElementById('specs').innerHTML=
   chip('ruler','طول تقریبی',d.ln)+chip('scale','وزن تقریبی',d.wt)+
@@ -784,25 +868,31 @@ function updateUI(w){
   gain+
   chip('apple','اندازهٔ جنین',d.sz==='—'?'—':'به بزرگی '+d.sz)+
   chip('shopping-basket','اندازهٔ رحم',d.ut);
+ var pb=document.getElementById('pbar');
+ if(pb){pb.setAttribute('aria-valuenow',String(w));pb.setAttribute('aria-valuetext','هفتهٔ '+FA(w)+' از ۴۰ — '+triName)}
  document.getElementById('pfill').style.width=((w-1)/39*100).toFixed(2)+'%';
  document.getElementById('pweek').textContent=FA(w);
  var ons=document.querySelectorAll('.wk.on');
- for(var i=0;i<ons.length;i++)ons[i].className=ons[i].className.replace(/\s*on/,'');
+ for(var i=0;i<ons.length;i++){ons[i].classList.remove('on');ons[i].removeAttribute('aria-current')}
  var btn=document.querySelector('.wk[data-w="'+w+'"]');
  if(btn){
-  if(btn.className.indexOf('on')<0)btn.className+=' on';
+  btn.classList.add('on');btn.setAttribute('aria-current','step');
   try{btn.scrollIntoView({block:'nearest',inline:'nearest',behavior:RM?'auto':'smooth'});}
   catch(e){try{btn.scrollIntoView(false)}catch(e2){}}
  }
  document.getElementById('prevB').disabled=w<=1;
  document.getElementById('nextB').disabled=w>=40;
+ var stat=document.getElementById('a11yStatus');
+ if(stat)stat.textContent='هفتهٔ '+FA(w)+' از ۴۰ — '+triName+' — '+(d.sz==='—'?d.ttl:'اندازهٔ جنین: '+d.sz);
+ document.title='هفتهٔ '+FA(w)+' — سفر چهل‌هفته‌ای';
  if(viz){viz.setWeek(w,!booted);viz.setBPM(d.bpm||null)}
  booted=true;
  renderPane();
  try{history.replaceState(null,'','#w'+w);localStorage.setItem('w40',String(w))}catch(e){}
- if(window.lucide)lucide.createIcons();
 }
 function goTo(w){
+ w=Number(w);
+ if(!isFinite(w))w=state.w||1;
  w=Math.max(1,Math.min(40,Math.round(w)));
  state.w=w;updateUI(w);
 }
@@ -1414,10 +1504,10 @@ document.getElementById('playBtn').addEventListener('click',function(){if(state.
 document.getElementById('rvBtn').addEventListener('click',function(){if(viz)viz.reset()});
 document.getElementById('lblBtn').addEventListener('click',function(e){
  var st=document.getElementById('stage');
- var off=st.className.indexOf('nolbls')>=0;
- if(off)st.className=st.className.replace(/\s*nolbls/,'');
- else st.className+=' nolbls';
- e.currentTarget.className=off?'btnic act':'btnic';
+ var off=st.classList.contains('nolbls');
+ if(off)st.classList.remove('nolbls');else st.classList.add('nolbls');
+ e.currentTarget.classList.toggle('act',off);
+ e.currentTarget.setAttribute('aria-pressed',off?'true':'false');
  if(viz)viz.setLabels(off);
 });
 document.getElementById('shareBtn').addEventListener('click',function(){
@@ -1432,7 +1522,9 @@ window.addEventListener('hashchange',function(){
  var mm=location.hash.match(/w(\d{1,2})/);
  if(mm&&parseInt(mm[1],10)!==state.w){stopPlay();goTo(parseInt(mm[1],10))}
 });
-if(window.lucide)lucide.createIcons();
+if(window.lucide)lucide.createIcons();else document.documentElement.classList.add('no-icons');
+}
+if(window.BJ_READY){BJ_READY.then(boot,boot)}else{boot()}
 })();
 </script>
 </body>

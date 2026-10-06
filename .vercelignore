@@ -1,0 +1,20 @@
+# پوشه‌های غیرضروری برای دیپلوی
+tests/
+tools/
+.github/
+node_modules/
+
+# فایل‌های پیکربندی و توسعه
+.editorconfig
+.gitattributes
+.gitignore
+.htmlvalidate.json
+.nojekyll
+package.json
+package-lock.json
+
+# مستندات توسعه‌دهنده
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+SECURITY.md

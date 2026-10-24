@@ -81,6 +81,19 @@ test('انتخاب هفتهٔ دیگر، رابط را به‌روز می‌کن
   assert.ok(/هفتهٔ ۲۰/.test(doc.getElementById('a11yStatus').textContent));
 });
 
+test('نقطهٔ عطف تصویری با تغییر هفته به‌روز می‌شود', () => {
+  const doc = dom.window.document;
+  doc.querySelector('.wk[data-w="1"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  const milestone = doc.querySelector('.milestone');
+  assert.ok(milestone, 'کارت نقطهٔ عطف باید وجود داشته باشد');
+  assert.strictEqual(doc.getElementById('milestoneText').textContent, 'شمارش چهل‌هفته‌ای بارداری از همین روز آغاز می‌شود');
+  assert.strictEqual(doc.getElementById('milestoneStep').textContent, 'گام ۱ از ۴۰');
+  doc.querySelector('.wk[data-w="20"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+  assert.strictEqual(doc.getElementById('milestoneStep').textContent, 'گام ۲۰ از ۴۰');
+  // Keep the shared jsdom state expected by the following navigation test.
+  doc.querySelector('.wk[data-w="20"]').dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }));
+});
+
 test('تب‌ها با الگوی ARIA کار می‌کنند', () => {
   const doc = dom.window.document;
   const tabs = doc.querySelectorAll('#tabs [role="tab"]');
@@ -145,4 +158,14 @@ test('ساختار دسترس‌پذیری پایه برقرار است', () => 
   for (const id of ['prevB', 'nextB', 'lblBtn', 'rvBtn']) {
     assert.ok(doc.getElementById(id).getAttribute('aria-label'), id + ' باید aria-label داشته باشد');
   }
+});
+
+
+test('راهنمای مراقبت، علائم هشدار و منابع NHS در صفحه قابل دسترسی است', () => {
+  const doc = dom.window.document;
+  const footer = doc.querySelector('footer');
+  assert.match(footer.textContent, /اطلاعات آموزشی/);
+  assert.match(footer.textContent, /کاهش\/تغییر حرکات/);
+  assert.ok(footer.querySelector('a[href^="https://www.nhs.uk/"]'));
+  assert.match(doc.documentElement.innerHTML, /توصیهٔ شخصی یا نسخهٔ مکمل نیستند/);
 });
